@@ -1,0 +1,303 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Plus, ArrowRight, Loader2, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { useGapAnalysis, useProfile, useTargetRoles, useRunGapAnalysis } from "@/hooks/queries";
+import { cn } from "@/lib/utils";
+import { pageStagger, fadeUp, listStagger, fadeUpSm, entrance } from "@/lib/motion";
+import { toast } from "sonner";
+
+export const Route = createFileRoute("/_app/gaps")({
+  head: () => ({
+    meta: [
+      { title: "Skill gaps - CareerAtlas" },
+      {
+        name: "description",
+        content:
+          "Ranked skill gaps for your target role, with prerequisites and the why behind each.",
+      },
+    ],
+  }),
+  component: Gaps,
+});
+
+const difficultyStyles: Record<string, string> = {
+  Easy: "bg-success/15 text-success",
+  Medium: "bg-warm/40 text-warm-foreground",
+  Hard: "bg-coral/15 text-coral",
+};
+
+function Gaps() {
+  const isBrowser = typeof window !== "undefined";
+  const { data: profile } = useProfile();
+  const { data: roles = [] } = useTargetRoles();
+  const { data: gaps = [], isLoading } = useGapAnalysis();
+  const runGap = useRunGapAnalysis();
+
+  const explainability = (() => {
+    if (!isBrowser) return null;
+    const raw = window.localStorage.getItem("careeratlas:last_gap_response");
+    if (!raw) return null;
+    try {
+      const parsed = JSON.parse(raw);
+      return parsed?.explainability || null;
+    } catch {
+      return null;
+    }
+  })();
+
+  const sorted = [...gaps].sort((a: any, b: any) => b.relevance - a.relevance);
+  const localRoleTitle = isBrowser
+    ? window.localStorage.getItem("careeratlas:selected_role_title")
+    : null;
+  const targetRole =
+    roles.find((r: any) => r.id === profile?.target_role_id)?.title ||
+    profile?.target_role_title ||
+    localRoleTitle ||
+    "Target Role";
+
+  const runAnalysis = () => {
+    runGap.mutate(
+      { targetRoleTitle: targetRole, force: true },
+      {
+        onSuccess: (data: any) => {
+          const n = Array.isArray(data?.gaps) ? data.gaps.length : 0;
+          toast.success(n > 0 ? `Found ${n} skill gaps` : "Analysis complete — no gaps found");
+        },
+        onError: (err: any) => toast.error("Gap analysis failed", { description: err?.message }),
+      },
+    );
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-20">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  return (
+    <motion.div className="space-y-8" variants={pageStagger} {...entrance}>
+      <motion.div variants={fadeUp} className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            Skill gap analysis
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            The skills standing between you and a typical{" "}
+            <span className="font-medium text-foreground">{targetRole}</span> offer, ranked by
+            impact.
+          </p>
+        </div>
+        <Button
+          onClick={runAnalysis}
+          disabled={runGap.isPending}
+          className="rounded-full bg-coral text-coral-foreground hover:bg-coral/90 shadow-warm"
+        >
+          {runGap.isPending ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Analyzing…
+            </>
+          ) : (
+            <>
+              <Sparkles className="mr-2 h-4 w-4" />{" "}
+              {gaps.length > 0 ? "Re-run analysis" : "Run gap analysis"}
+            </>
+          )}
+        </Button>
+      </motion.div>
+
+      <motion.ol className="space-y-4" variants={listStagger}>
+        {sorted.map((g: any, i: number) => (
+          <motion.li
+            key={g.skill}
+            variants={fadeUpSm}
+            className="hover-lift rounded-3xl border border-border bg-card p-6 shadow-soft"
+          >
+            <div className="flex flex-wrap items-start gap-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-primary text-primary-foreground font-display font-bold">
+                {i + 1}
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-display text-lg font-semibold">{g.skill}</h3>
+                  <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                    {g.category}
+                  </span>
+                  <span
+                    className={cn(
+                      "rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider",
+                      difficultyStyles[g.difficulty] || difficultyStyles.Medium,
+                    )}
+                  >
+                    {g.difficulty}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">{g.why}</p>
+
+                {g.prerequisites && g.prerequisites.length > 0 && (
+                  <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="text-muted-foreground">Prereqs:</span>
+                    {g.prerequisites.map((p: string, idx: number) => (
+                      <span key={p} className="flex items-center gap-1">
+                        <span className="rounded-full border border-border px-2 py-0.5 text-foreground">
+                          {p}
+                        </span>
+                        {idx < g.prerequisites.length - 1 && (
+                          <ArrowRight className="h-3 w-3 text-muted-foreground" />
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="flex w-full flex-col items-end gap-3 sm:w-auto">
+                <RelevanceMeter value={g.relevance} />
+                <Button
+                  size="sm"
+                  className="rounded-full bg-coral text-coral-foreground hover:bg-coral/90"
+                  onClick={() => toast.success("Added to roadmap", { description: g.skill })}
+                >
+                  <Plus className="mr-1 h-4 w-4" /> Add to roadmap
+                </Button>
+              </div>
+            </div>
+          </motion.li>
+        ))}
+        {sorted.length === 0 && (
+          <div className="rounded-3xl border border-dashed border-border bg-card p-10 text-center">
+            <Sparkles className="mx-auto h-8 w-8 text-coral" />
+            <p className="mt-3 text-sm text-muted-foreground">
+              No gap analysis yet for{" "}
+              <span className="font-medium text-foreground">{targetRole}</span>. Run it to see your
+              ranked skill gaps — needed before the roadmap's deep research.
+            </p>
+            <Button
+              onClick={runAnalysis}
+              disabled={runGap.isPending}
+              className="mt-4 rounded-full bg-coral text-coral-foreground hover:bg-coral/90"
+            >
+              {runGap.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Analyzing…
+                </>
+              ) : (
+                <>
+                  <Sparkles className="mr-2 h-4 w-4" /> Run gap analysis
+                </>
+              )}
+            </Button>
+          </div>
+        )}
+      </motion.ol>
+
+      {explainability && (
+        <motion.section
+          variants={fadeUp}
+          className="hover-lift rounded-3xl border border-border bg-card p-6 shadow-soft"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="font-display text-xl font-semibold">Why these gaps?</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Backend explainability and retrieval trace from the gap analysis agent.
+              </p>
+            </div>
+            {typeof explainability.input_skill_count === "number" && (
+              <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                Input Skills Analyzed: {explainability.input_skill_count}
+              </span>
+            )}
+          </div>
+
+          {(gaps || []).length > 0 ? (
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {(gaps || []).map((gap: any, idx: number) => {
+                const req = (explainability.retrieved_requirements || []).find(
+                  (r: any) => r.skill_name.toLowerCase() === gap.skill.toLowerCase(),
+                );
+
+                const reason = Object.entries(explainability.justifications || {}).find(
+                  ([key]) => key.toLowerCase() === gap.skill.toLowerCase(),
+                )?.[1];
+
+                const category = gap.category || req?.category || "unknown";
+                const level_required = gap.level_required || req?.level_required || "intermediate";
+                const description = reason || gap.why || req?.description || "";
+                const prerequisites = gap.prerequisites || req?.prerequisites || [];
+
+                return (
+                  <div
+                    key={`${gap.skill}-${idx}`}
+                    className="rounded-2xl border border-coral/20 bg-coral/5 p-4 transition-all space-y-3"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <h3 className="font-display text-base font-semibold text-foreground truncate">
+                          {gap.skill}
+                        </h3>
+                        <div className="mt-1 flex flex-wrap items-center gap-1 text-[10px] text-muted-foreground">
+                          <span className="uppercase tracking-wider font-medium bg-muted px-1.5 py-0.5 rounded">
+                            {category}
+                          </span>
+                          <span className="uppercase tracking-wider font-medium bg-muted px-1.5 py-0.5 rounded">
+                            {level_required}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider shrink-0 bg-coral/15 text-coral">
+                        Gap
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
+
+                    {prerequisites.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-1 text-[10px] pt-1">
+                        <span className="text-muted-foreground font-medium">Prereqs:</span>
+                        {prerequisites.map((p: string) => (
+                          <span
+                            key={p}
+                            className="rounded bg-background border border-border/60 px-1.5 py-0.25 text-foreground"
+                          >
+                            {p}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="mt-4 text-xs text-muted-foreground">
+              Retrieval trace is unavailable for this cached run. Re-run analysis to see the full
+              trace.
+            </p>
+          )}
+        </motion.section>
+      )}
+    </motion.div>
+  );
+}
+
+function RelevanceMeter({ value }: { value: number }) {
+  return (
+    <div className="w-full sm:w-44">
+      <div className="flex items-center justify-between text-xs">
+        <span className="text-muted-foreground">Relevance</span>
+        <span className="font-semibold text-coral">{value}%</span>
+      </div>
+      <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-muted">
+        <motion.div
+          className="h-full rounded-full bg-coral"
+          initial={{ width: 0 }}
+          animate={{ width: `${value}%` }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+        />
+      </div>
+    </div>
+  );
+}
