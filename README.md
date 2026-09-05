@@ -132,10 +132,4 @@ A LangGraph search planner evaluated on curriculum structures verified relevant 
 Validated location and role relevance filters on Adzuna results.
 ![Job Hunter Evaluation](static/eval_job_hunter_evaluation_0.png)
 
-## Contributors
 
-- **Tanush Tambe** - Resume Extractor, Job Finder, Evaluation Notebooks
-- **Dripto Bhattacharyya** - Deep Researcher, Evaluation, Deployment
-- **Sidhaarth Shree** - Gap Analysis Agent, Evaluation
-- **G Hamsini** - Contributor
-- **Shivanshu Gupta** - Contributor
