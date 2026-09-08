@@ -7,6 +7,7 @@ from app.dependencies.database import db_client
 from app.config import settings
 from app.github_analysis.schemas import GitHubOAuthCallback, RepoSelection, GitHubReposResponse, SkillAction
 from app.github_analysis.service import fetch_top_repositories, analyze_selected_repositories
+from app.github_analysis.github_api import GitHubAuthenticationError
 
 logger = logging.getLogger(__name__)
 
@@ -97,6 +98,13 @@ async def get_github_repos(user_id: str = Depends(require_user_id)):
         return {"success": True, "repos": repos}
     except HTTPException:
         raise
+    except GitHubAuthenticationError as exc:
+        # A token row can remain after a user revokes the OAuth grant in GitHub.
+        # Tell the client to reconnect instead of presenting this as a server error.
+        raise HTTPException(
+            status_code=401,
+            detail="GitHub connection expired or was revoked. Please reconnect GitHub.",
+        ) from exc
     except Exception:
         logger.exception("Failed to fetch github repos")
         raise HTTPException(status_code=500, detail="Failed to fetch repositories.")
@@ -196,6 +204,11 @@ async def analyze_github_repos(
 
     except HTTPException:
         raise
+    except GitHubAuthenticationError as exc:
+        raise HTTPException(
+            status_code=401,
+            detail="GitHub connection expired or was revoked. Please reconnect GitHub.",
+        ) from exc
     except Exception:
         logger.exception("Failed to analyze github repos")
         raise HTTPException(status_code=500, detail="Failed to analyze repositories.")

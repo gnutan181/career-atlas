@@ -8,6 +8,10 @@ _REST_HEADERS = {
 }
 
 
+class GitHubAuthenticationError(Exception):
+    """The OAuth token saved for a user is no longer accepted by GitHub."""
+
+
 async def fetch_authenticated_login(access_token: str) -> str:
     """The viewer's login — needed to filter commits to owner-authored only."""
     async with httpx.AsyncClient() as client:
@@ -71,6 +75,8 @@ async def fetch_github_graphql(query: str, variables: dict, access_token: str) -
             }
         )
         if resp.status_code != 200:
+            if resp.status_code == 401:
+                raise GitHubAuthenticationError("GitHub connection expired or was revoked")
             raise Exception(f"GitHub GraphQL API failed: {resp.text}")
 
         data = resp.json()

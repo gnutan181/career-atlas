@@ -21,6 +21,14 @@ export const Route = createFileRoute("/_app/github")({
   component: GithubConnectPage,
 });
 
+type GitHubRepository = {
+  name: string;
+  isOwner: boolean;
+  description?: string | null;
+  primaryLanguage?: string | null;
+  stargazerCount: number;
+};
+
 function GithubConnectPage() {
   const navigate = useNavigate();
   const qc = useQueryClient();
@@ -33,7 +41,11 @@ function GithubConnectPage() {
   });
 
   // 2. If connected, fetch repos
-  const { data: reposData, isLoading: reposLoading } = useQuery({
+  const {
+    data: reposData,
+    isLoading: reposLoading,
+    isError: reposFailed,
+  } = useQuery({
     queryKey: ["github-repos"],
     queryFn: () => apiClient.get("/api/github/repos").then((r) => r.data),
     enabled: !!statusData?.connected,
@@ -111,6 +123,23 @@ function GithubConnectPage() {
         </p>
       </div>
 
+      {reposFailed && (
+        <Card>
+          <CardHeader>
+            <CardTitle>GitHub connection needs to be refreshed</CardTitle>
+            <CardDescription>
+              GitHub no longer accepts the saved authorization. Reconnect to get a new token, then
+              load your repositories again.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button onClick={handleConnect}>
+              <Github className="w-4 h-4 mr-2" /> Reconnect GitHub
+            </Button>
+          </CardContent>
+        </Card>
+      )}
+
       {reposLoading ? (
         <div className="flex justify-center p-12">
           <Loader2 className="animate-spin h-8 w-8 text-primary" />
@@ -119,7 +148,7 @@ function GithubConnectPage() {
         <Card>
           <CardContent className="p-0">
             <div className="divide-y">
-              {reposData?.repos?.map((repo: any) => (
+              {reposData?.repos?.map((repo: GitHubRepository) => (
                 <div
                   key={repo.name}
                   className="flex items-start space-x-4 p-4 hover:bg-muted/50 transition-colors"
