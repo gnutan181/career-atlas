@@ -227,3 +227,28 @@ def test_build_groq_structured_chain(monkeypatch):
     assert calls[1] == ("with_structured_output", schema)
     assert calls[2][0] == "__or__"
     assert isinstance(calls[2][1], _MockStructuredModel)
+
+
+def test_build_groq_structured_chain_uses_json_schema_for_gpt_oss(monkeypatch):
+    calls = []
+
+    class _MockStructuredModel:
+        pass
+
+    class _MockModel:
+        def with_structured_output(self, schema, **kwargs):
+            calls.append((schema, kwargs))
+            return _MockStructuredModel()
+
+    monkeypatch.setattr(llm_factory, "get_groq_model", lambda *args: _MockModel())
+    monkeypatch.setattr(llm_factory.settings, "groq_model", "openai/gpt-oss-120b")
+
+    class _MockPrompt:
+        def __or__(self, other):
+            return other
+
+    llm_factory.build_groq_structured_chain(_MockPrompt(), {"type": "object"})
+
+    assert calls == [
+        ({"type": "object"}, {"method": "json_schema", "strict": True})
+    ]
