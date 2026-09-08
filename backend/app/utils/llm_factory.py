@@ -87,17 +87,24 @@ def get_groq_model(model_name: str | None = None, temperature: float = 0.2):
     )
 
 
-def build_groq_structured_chain(prompt: Any, schema: Any, temperature: float = 0.2, model_name: str | None = None):
+def build_groq_structured_chain(
+    prompt: Any,
+    schema: Any,
+    temperature: float = 0.2,
+    model_name: str | None = None,
+    strict_json_schema: bool = False,
+):
     """Compose a `prompt | groq.with_structured_output(...)` chain.
 
     Wraps the recurring pattern of grabbing a Groq model, binding a structured
-    output schema, and piping a prompt template into it.  GPT-OSS models use
+    output schema, and piping a prompt template into it. GPT-OSS models use
     JSON Schema mode so structured output does not masquerade as a forced tool
-    call; other supported models retain function-calling mode for compatibility.
+    call; callers can opt into strict validation for schemas with no optional
+    fields. Other supported models retain function-calling mode for compatibility.
     """
     selected_model = model_name or settings.groq_model
     structured_kwargs = (
-        {"method": "json_schema", "strict": True}
+        {"method": "json_schema", "strict": strict_json_schema}
         if selected_model in _JSON_SCHEMA_MODELS
         else {}
     )

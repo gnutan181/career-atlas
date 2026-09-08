@@ -13,6 +13,7 @@ judge can reason about freshness. After the pathway is built, `validate`
 drops hallucinated/dead links, then the LLM-as-judge scores it on a 7-point
 rubric. A failing verdict triggers one re-structure with the judge's feedback.
 """
+import json
 import logging
 from datetime import datetime
 
@@ -30,7 +31,9 @@ from app.deep_researcher.prompts import (
 from app.deep_researcher.schemas import (
     NextQuery,
     CriticOut,
+    Milestone,
     Pathway,
+    Resource,
     ResearcherState,
     ValidationResult,
 )
@@ -38,6 +41,7 @@ from app.deep_researcher.schemas import (
 logger = logging.getLogger(__name__)
 
 CURRENT_YEAR = datetime.now().year
+STRUCTURE_MAX_ATTEMPTS = 3
 
 
 def _gaps_brief(gaps) -> str:
@@ -55,6 +59,99 @@ def _notes_brief(notes, char_cap: int = 300) -> str:
     if not notes:
         return "(none yet)"
     return "\n".join(f"[{i}] {n[:char_cap]}" for i, n in enumerate(notes))
+
+
+def _recover_failed_pathway(error: Exception, state: ResearcherState) -> Pathway | None:
+    """Recover Groq's valid-but-incomplete JSON after strict-schema rejection.
+
+    Groq includes the rejected model response in ``error.body.error.failed_generation``.
+    We only use it after retries fail, preserve every valid resource, and fill omitted
+    fields deterministically so link validation and the quality judge can continue.
+    """
+    body = getattr(error, "body", None)
+    if not isinstance(body, dict):
+        return None
+    generated = body.get("error", {}).get("failed_generation")
+    if not isinstance(generated, str):
+        return None
+    try:
+        payload = json.loads(generated)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(payload, dict):
+        return None
+
+    milestones: list[Milestone] = []
+    seen_skills: set[str] = set()
+    for raw in payload.get("milestones", []):
+        if not isinstance(raw, dict):
+            continue
+        skill = str(raw.get("skill") or "").strip()
+        if not skill:
+            continue
+        resources = []
+        for candidate in raw.get("resources", []):
+            try:
+                resources.append(Resource.model_validate(candidate))
+            except Exception:
+                continue
+        checklist = [str(item).strip() for item in raw.get("checklist", []) if str(item).strip()]
+        if len(checklist) < 3:
+            checklist = [
+                f"Review the core concepts of {skill}.",
+                f"Complete a focused {skill} practice exercise.",
+                f"Document what you learned about {skill}.",
+            ]
+        phase = raw.get("phase")
+        if phase not in {"Foundations", "Intermediate", "Advanced"}:
+            phase = "Intermediate"
+        try:
+            estimated_weeks = max(1, int(raw.get("estimated_weeks", 2)))
+        except (TypeError, ValueError):
+            estimated_weeks = 2
+        milestones.append(
+            Milestone(
+                phase=phase,
+                skill=skill,
+                estimated_weeks=estimated_weeks,
+                objective=str(raw.get("objective") or f"Build practical capability in {skill}."),
+                resources=resources,
+                checklist=checklist,
+                mini_project=str(raw.get("mini_project") or f"Build a small project applying {skill}."),
+            )
+        )
+        seen_skills.add(skill.casefold())
+
+    # The quality judge can request a better retry, but never let one truncated
+    # model response erase a skill gap from the pathway entirely.
+    for gap in state["gaps"]:
+        if gap.skill.casefold() in seen_skills:
+            continue
+        milestones.append(
+            Milestone(
+                phase="Intermediate",
+                skill=gap.skill,
+                estimated_weeks=2,
+                objective=f"Build practical capability in {gap.skill}.",
+                resources=[],
+                checklist=[
+                    f"Review the core concepts of {gap.skill}.",
+                    f"Complete a focused {gap.skill} practice exercise.",
+                    f"Document what you learned about {gap.skill}.",
+                ],
+                mini_project=f"Build a small project applying {gap.skill}.",
+            )
+        )
+    if not milestones:
+        return None
+    return Pathway(
+        target_role=str(payload.get("target_role") or state["target_role"]),
+        milestones=milestones,
+        rationale=str(
+            payload.get("rationale")
+            or "The pathway progresses from foundational concepts to applied, role-specific skills."
+        ),
+    )
 
 
 # ── Nodes ────────────────────────────────────────────────────────────────────
@@ -122,14 +219,48 @@ def node_structure(state: ResearcherState) -> dict:
     else:
         feedback = "(none — first attempt)"
 
-    structurer = build_groq_structured_chain(STRUCTURE_PROMPT, Pathway, temperature=0.2)
-    pathway: Pathway = structurer.invoke({
+    structure_input = {
         "target_role": state["target_role"],
         "current_year": CURRENT_YEAR,
         "gaps": _gaps_detailed(state["gaps"]),
         "notes": "\n".join(state.get("notes", [])),
         "feedback": feedback,
-    })
+    }
+
+    # Pathway has a fully required schema, so use strict JSON output to prevent
+    # malformed model responses from reaching persistence. GPT-OSS may
+    # occasionally omit fields near the end of a long pathway; retry that
+    # validation-specific failure at temperature 0 before surfacing it.
+    for attempt in range(STRUCTURE_MAX_ATTEMPTS):
+        temperature = 0.2 if attempt == 0 else 0.0
+        structurer = build_groq_structured_chain(
+            STRUCTURE_PROMPT,
+            Pathway,
+            temperature=temperature,
+            strict_json_schema=True,
+        )
+        try:
+            pathway: Pathway = structurer.invoke(structure_input)
+            break
+        except Exception as exc:
+            is_schema_failure = "json_validate_failed" in str(exc)
+            if is_schema_failure and attempt == STRUCTURE_MAX_ATTEMPTS - 1:
+                pathway = _recover_failed_pathway(exc, state)
+                if pathway is not None:
+                    logger.warning(
+                        "deep_researcher recovered an incomplete strict-schema response after %d attempts",
+                        STRUCTURE_MAX_ATTEMPTS,
+                    )
+                    break
+            if not is_schema_failure or attempt == STRUCTURE_MAX_ATTEMPTS - 1:
+                raise
+            logger.warning(
+                "deep_researcher structure schema validation failed; retrying (%d/%d)",
+                attempt + 1,
+                STRUCTURE_MAX_ATTEMPTS,
+            )
+    else:  # Defensive: the loop either breaks on success or raises above.
+        raise RuntimeError("Structure generation exhausted without a pathway")
     out: dict = {"pathway": pathway}
     if is_retry:
         out["retry_count"] = state.get("retry_count", 0) + 1

@@ -250,5 +250,5 @@ def test_build_groq_structured_chain_uses_json_schema_for_gpt_oss(monkeypatch):
     llm_factory.build_groq_structured_chain(_MockPrompt(), {"type": "object"})
 
     assert calls == [
-        ({"type": "object"}, {"method": "json_schema", "strict": True})
+        ({"type": "object"}, {"method": "json_schema", "strict": False})
     ]

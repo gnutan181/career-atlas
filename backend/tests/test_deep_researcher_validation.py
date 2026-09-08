@@ -24,9 +24,18 @@ def _pathway(resources):
                 objective="o",
                 checklist=["a", "b", "c"],
                 resources=resources,
+                mini_project="Build a small Python project",
             )
         ],
     )
+
+
+def test_pathway_schema_is_strict_json_schema_compatible():
+    """Groq strict JSON mode requires every object key to be required."""
+    schema = Pathway.model_json_schema()
+    milestone_schema = schema["$defs"]["Milestone"]
+
+    assert set(milestone_schema["properties"]) == set(milestone_schema["required"])
 
 
 def test_norm_strips_trailing_slash_and_lowercases():
@@ -93,18 +102,20 @@ def test_probe_scenarios():
         milestones=[
             Milestone(
                 phase="Foundations", skill="S1", estimated_weeks=1, objective="o1", checklist=["c1"],
-                resources=[
-                    _resource("R1 OK", "https://test.com/ok"),
-                    _resource("R2 403 then OK", "https://test.com/retry-ok"),
-                    _resource("R3 403 then dead", "https://test.com/retry-dead"),
-                ]
+                    resources=[
+                        _resource("R1 OK", "https://test.com/ok"),
+                        _resource("R2 403 then OK", "https://test.com/retry-ok"),
+                        _resource("R3 403 then dead", "https://test.com/retry-dead"),
+                    ],
+                    mini_project="Project one",
             ),
             Milestone(
                 phase="Intermediate", skill="S2", estimated_weeks=1, objective="o2", checklist=["c2"],
-                resources=[
-                    _resource("R4 Dead", "https://test.com/dead"),
-                    _resource("R5 Exception", "https://test.com/error"),
-                ]
+                    resources=[
+                        _resource("R4 Dead", "https://test.com/dead"),
+                        _resource("R5 Exception", "https://test.com/error"),
+                    ],
+                    mini_project="Project two",
             )
         ]
     )

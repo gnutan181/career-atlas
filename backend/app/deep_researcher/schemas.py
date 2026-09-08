@@ -26,9 +26,9 @@ class Milestone(BaseModel):
     skill: str = Field(description="Gap skill being closed")
     estimated_weeks: int
     objective: str = Field(description="What the learner will be able to do after this milestone")
-    resources: List[Resource] = Field(default_factory=list)
+    resources: List[Resource] = Field(description="2-4 grounded learning resources")
     checklist: List[str] = Field(description="3-5 concrete, checkable items")
-    mini_project: Optional[str] = Field(None, description="Hands-on project suggestion")
+    mini_project: str = Field(description="Hands-on project suggestion")
 
 
 class Pathway(BaseModel):

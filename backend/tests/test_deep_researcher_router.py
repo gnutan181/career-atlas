@@ -101,9 +101,10 @@ def test_deep_research_success(
                 phase="Foundations",
                 skill="Python",
                 estimated_weeks=2,
-                objective="Learn Python",
-                resources=[],
-                checklist=["Write hello world"]
+                    objective="Learn Python",
+                    resources=[],
+                    checklist=["Write hello world"],
+                    mini_project="Build a command-line tool",
             )
         ]
     )
@@ -244,9 +245,10 @@ def test_deep_research_github_error_ignored(
                 phase="Foundations",
                 skill="Python",
                 estimated_weeks=2,
-                objective="Learn Python",
-                resources=[],
-                checklist=["Write hello world"]
+                    objective="Learn Python",
+                    resources=[],
+                    checklist=["Write hello world"],
+                    mini_project="Build a command-line tool",
             )
         ]
     )
@@ -358,9 +360,10 @@ def test_deep_research_persistence_failure(
                 phase="Foundations",
                 skill="Python",
                 estimated_weeks=2,
-                objective="Learn Python",
-                resources=[],
-                checklist=["Write hello world"]
+                    objective="Learn Python",
+                    resources=[],
+                    checklist=["Write hello world"],
+                    mini_project="Build a command-line tool",
             )
         ]
     )

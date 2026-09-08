@@ -63,7 +63,12 @@ REVISION FEEDBACK (from a prior evaluation — empty on the first attempt):
 Produce a Pathway with:
 - ONE milestone per gap, in prerequisite-respecting order.
 - Each milestone in an appropriate phase (Foundations / Intermediate / Advanced).
-- 2-4 resources per milestone. CRITICAL: every resource `url` MUST be a URL that
+- Exactly 2 resources per milestone and exactly 3 concrete checklist items per milestone.
+  Keep every objective, rationale, resource `why`, and mini-project to one concise sentence.
+  Every milestone MUST include `phase`, `skill`, `estimated_weeks`, `objective`, `resources`,
+  `checklist`, and `mini_project`; the entire Pathway MUST include `target_role`, `milestones`,
+  and `rationale`. Do not stop early or omit any of these fields.
+- CRITICAL: every resource `url` MUST be a URL that
   appears verbatim in the RESEARCH NOTES above. Do NOT invent or guess URLs —
   ungrounded links are dropped downstream and will fail evaluation.
 - Prefer the most recent resources; avoid anything tied to an old framework version.
