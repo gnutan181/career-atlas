@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
-    {name = "Dripto Bhattacharyya", email = "dripto.215@gmail.com"}
+    {name = "Nutan Gupta", email = "gnutan181@gmail.com"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",

@@ -33,7 +33,7 @@ All contributors must sign the [Contributor License Agreement](CLA.md) before th
 **How to sign:**
 1. Read the [CLA.md](CLA.md)
 2. When opening your first PR, check the CLA checkbox in the PR template
-3. Or comment on your PR: `I agree to the terms of the CareerAtlas CLA: https://github.com/DriptoBhattacharyya/Career-Atlas/blob/main/CLA.md`
+3. Or comment on your PR: `I agree to the terms of the CareerAtlas CLA: https://github.com/gnutan181/career-atlas/blob/main/CLA.md`
 
 ---
 
@@ -49,7 +49,7 @@ All contributors must sign the [Contributor License Agreement](CLA.md) before th
 
 ```bash
 # Clone and enter repo
-git clone https://github.com/DriptoBhattacharyya/Career-Atlas.git
+git clone https://github.com/gnutan181/career-atlas
 cd Career-Atlas
 
 # Backend
@@ -104,14 +104,14 @@ Never commit real API keys. Use `.env.example` as template:
 
 ### 1. Find an Issue
 
-- Check [Issues](https://github.com/DriptoBhattacharyya/Career-Atlas/issues) for `good first issue`, `help wanted`, or `bug`
+- Check [Issues](https://github.com/gnutan181/career-atlas/issues) for `good first issue`, `help wanted`, or `bug`
 - Comment on the issue to claim it
 - For new features/bugs, open an issue first to discuss
 
 ### 2. Fork & Branch
 
 ```bash
-git clone https://github.com/DriptoBhattacharyya/Career-Atlas.git
+git clone https://github.com/gnutan181/career-atlas
 cd Career-Atlas
 git checkout -b feature/your-feature-name
 # or
@@ -304,25 +304,3 @@ Use the [Feature Request template](.github/ISSUE_TEMPLATE/feature_request.md). D
 ### Security Issues
 
 **Do not open public issues** for vulnerabilities. See [SECURITY.md](SECURITY.md) for responsible disclosure.
-
----
-
-## Community
-
-- **Discussions**: GitHub Discussions for questions, ideas
-- **Maintainers**: @DriptoBhattacharyya + co-maintainers
-
----
-
-## Recognition
-
-Contributors are recognized in:
-- [README.md](README.md#contributors)
-- Release notes
-- `AUTHORS` file (if created)
-
----
-
-## Questions?
-
-Open a [Discussion](https://github.com/DriptoBhattacharyya/Career-Atlas/discussions) or ask in the PR/issue.

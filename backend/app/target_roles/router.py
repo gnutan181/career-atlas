@@ -15,15 +15,15 @@ router = APIRouter(prefix="/api/target-roles", tags=["TargetRoles"])
 def list_target_roles():
     try:
         print("Fetching target roles from Supabase...")
-        print(db_client.table("target_roles"))
+        # print(db_client.table("target_roles"))
         resp = (
             db_client.table("target_roles")
             .select("id,title,category,blurb,emoji,popular_skills")
             .order("title")
             .execute()
         )
-        print("wsz",resp.data)
-        print("resp",resp)
+        # print("wsz",resp.data)
+        # print("resp",resp)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"target_roles fetch failed: {e}")
     return {"success": True, "roles": resp.data or []}

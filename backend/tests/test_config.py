@@ -31,8 +31,8 @@ def test_environment_defaults_to_production_when_unset():
     land in "development", which is what the dev auth bypass checks for in
     app.dependencies.auth.get_current_user_id.
 
-    The test process itself runs with no ENVIRONMENT variable set (confirmed
-    by the worktree having no backend/.env), so the field default that was
-    baked in at import time reflects the unset case directly.
+    This checks the model default itself. A value from the environment or
+    backend/.env is applied when Settings is instantiated and must not change
+    that safe fallback.
     """
     assert config.Settings.model_fields["environment"].default == "production"

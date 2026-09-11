@@ -328,6 +328,7 @@ def latest_pathway(
     # Resolve the canonical slug the same way POST does, so a pathway saved
     # under ROLE_SLUG_MAP's slug is reachable. target_role_id is preferred;
     # role_slug is kept only as a legacy fallback.
+    # print("target_role_id", target_role_id, "erd",role_slug)
     resolved_slug = role_slug
     if target_role_id:
         role_resp = (
@@ -337,8 +338,10 @@ def latest_pathway(
             .limit(1)
             .execute()
         )
+        # print("role_resp", role_resp.data)
         if role_resp.data:
             resolved_slug = resolve_role_slug(role_resp.data[0]["title"])
+            # print("resolved_slug", resolved_slug)
 
     try:
         q = (
@@ -348,9 +351,12 @@ def latest_pathway(
             .order("created_at", desc=True)
             .limit(1)
         )
+        # print("q",q)
         if resolved_slug:
             q = q.eq("role_slug", resolved_slug)
+            print("q with resolved_slug",q)
         resp = q.execute()
+        # print(resp,"resp")
     except Exception as e:
         logger.warning("deep_researcher latest lookup failed: %s", e)
         raise HTTPException(status_code=404, detail="No pathway found")

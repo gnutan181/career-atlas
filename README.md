@@ -10,9 +10,8 @@ CareerAtlas is designed as a senior career advisor for early-career developers. 
 Through a multi-agent system, the app identifies exactly what skill gaps exist between your current profile and your target career role, retrieves online tutorials/courses to bridge those gaps, and ranks real job postings by skill compatibility.
 
 ### Links
-[Working Web App](https://careeratlas.driptoagain2.workers.dev)
+[Working Web App](https://career-atlas.gnutan181.workers.dev/)
 
-[Deep Wiki documentation](https://deepwiki.com/driptobhattacharyya/Career-Atlas)
 
 ## Key Features
 

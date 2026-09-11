@@ -23,7 +23,11 @@ class Settings(BaseSettings):
     # forgot to set it), default to "production" so the dev auth bypass in
     # app.dependencies.auth stays disabled. Local dev gets ENVIRONMENT=development
     # from backend/.env.example.
-    environment: str = os.getenv("ENVIRONMENT", "production")
+    # Keep this as a literal default rather than evaluating ``os.getenv`` at
+    # import time. BaseSettings still reads ENVIRONMENT and backend/.env when
+    # Settings is instantiated, while a genuinely unset environment safely
+    # falls back to production.
+    environment: str = "production"
     cors_origins: str = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173,http://localhost:8080")
     api_rate_limit_requests: int = int(os.getenv("API_RATE_LIMIT_REQUESTS", "30"))
     api_rate_limit_window_seconds: int = int(os.getenv("API_RATE_LIMIT_WINDOW_SECONDS", "60"))
