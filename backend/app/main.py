@@ -40,7 +40,7 @@ add_rate_limit_middleware(app)
 # never match a public wildcard: with allow_credentials=True a reflected
 # wildcard origin lets any attacker-controlled site make credentialed requests.
 origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
-print("CORS origins:", origins)
+# print("CORS origins:", origins)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

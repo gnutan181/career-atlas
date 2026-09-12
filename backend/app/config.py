@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     # Settings is instantiated, while a genuinely unset environment safely
     # falls back to production.
     environment: str = "production"
-    cors_origins: str = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173,http://localhost:8080,https://career-atlas.gnutan181.workers.dev")
+    cors_origins: str = os.getenv("CORS_ORIGINS", "https://career-atlas.gnutan181.workers.dev, http://localhost:3000,http://localhost:5173,http://localhost:8080")
     api_rate_limit_requests: int = int(os.getenv("API_RATE_LIMIT_REQUESTS", "30"))
     api_rate_limit_window_seconds: int = int(os.getenv("API_RATE_LIMIT_WINDOW_SECONDS", "60"))
     
