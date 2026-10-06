@@ -65,8 +65,11 @@ export const Route = createRootRoute({
       { property: "og:title", content: "CareerAtlas" },
       { property: "og:description", content: "Find the path to your next role." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://career-atlas.gnutan181.workers.dev/" },
-      // { property: "og:image", content: "https://career-atlas.gnutan181.workers.dev/career-atlas-preview.png" },
+      { property: "og:url", content: "https://career-atlas.gnutan181.workers.dev" },
+      {
+        property: "og:image",
+        content: "https://career-atlas.gnutan181.workers.dev/landingpage.png",
+      },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
     ],
