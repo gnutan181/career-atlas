@@ -179,6 +179,11 @@ async def hybrid_retrieve(
             if name not in skill_meta and name in meta_lookup:
                 skill_meta[name] = meta_lookup[name]
 
+    # Drop skills the user already has: they cannot be gaps, and the downstream
+    # prompt discards them anyway, so leaving them in only wastes top-N slots.
+    known = {s.strip().lower() for s in user_skills}
+    rrf_scores = {n: s for n, s in rrf_scores.items() if n.strip().lower() not in known}
+
     # Sort by fused score, take top N
     fused_ranked = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
     fused_top = fused_ranked[:fused_top_n]
