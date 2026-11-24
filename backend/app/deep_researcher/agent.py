@@ -19,6 +19,8 @@ from datetime import datetime
 
 from langgraph.graph import StateGraph, START, END
 
+from app.security.output_guards import validate_texts, with_reask
+from app.security.pii import TECH_TERMS
 from app.utils.llm_factory import build_groq_structured_chain
 from app.deep_researcher.tools import search_web
 from app.deep_researcher.judge import evaluate_pathway
@@ -202,6 +204,17 @@ def critic_route(state: ResearcherState) -> str:
     return out.decision
 
 
+def _validate_pathway_text(pathway: Pathway, state: ResearcherState) -> None:
+    evidence = list(state.get("evidence_skills", []) or [])
+    gap_skills = [g.skill if hasattr(g, "skill") else str(g.get("skill", "")) for g in state.get("gaps", [])]
+    texts: list[str] = [pathway.rationale]
+    for milestone in pathway.milestones:
+        texts.extend([milestone.skill, milestone.objective, milestone.mini_project, *milestone.checklist])
+        for resource in milestone.resources:
+            texts.extend([resource.title, resource.why])
+    validate_texts(texts, evidence, evidence + gap_skills + TECH_TERMS, "roadmap_output")
+
+
 def node_structure(state: ResearcherState) -> dict:
     # A judge_verdict already in state means this is a retry pass.
     prior_verdict = state.get("judge_verdict")
@@ -231,36 +244,42 @@ def node_structure(state: ResearcherState) -> dict:
     # malformed model responses from reaching persistence. GPT-OSS may
     # occasionally omit fields near the end of a long pathway; retry that
     # validation-specific failure at temperature 0 before surfacing it.
-    for attempt in range(STRUCTURE_MAX_ATTEMPTS):
-        temperature = 0.2 if attempt == 0 else 0.0
-        structurer = build_groq_structured_chain(
-            STRUCTURE_PROMPT,
-            Pathway,
-            temperature=temperature,
-            strict_json_schema=True,
-        )
-        try:
-            pathway: Pathway = structurer.invoke(structure_input)
-            break
-        except Exception as exc:
-            is_schema_failure = "json_validate_failed" in str(exc)
-            if is_schema_failure and attempt == STRUCTURE_MAX_ATTEMPTS - 1:
-                pathway = _recover_failed_pathway(exc, state)
-                if pathway is not None:
-                    logger.warning(
-                        "deep_researcher recovered an incomplete strict-schema response after %d attempts",
-                        STRUCTURE_MAX_ATTEMPTS,
-                    )
-                    break
-            if not is_schema_failure or attempt == STRUCTURE_MAX_ATTEMPTS - 1:
-                raise
-            logger.warning(
-                "deep_researcher structure schema validation failed; retrying (%d/%d)",
-                attempt + 1,
-                STRUCTURE_MAX_ATTEMPTS,
+    def _structure_once(_reask_attempt: int) -> Pathway:
+        for attempt in range(STRUCTURE_MAX_ATTEMPTS):
+            temperature = 0.2 if attempt == 0 else 0.0
+            structurer = build_groq_structured_chain(
+                STRUCTURE_PROMPT,
+                Pathway,
+                temperature=temperature,
+                strict_json_schema=True,
             )
-    else:  # Defensive: the loop either breaks on success or raises above.
-        raise RuntimeError("Structure generation exhausted without a pathway")
+            try:
+                pathway: Pathway = structurer.invoke(structure_input)
+                break
+            except Exception as exc:
+                is_schema_failure = "json_validate_failed" in str(exc)
+                if is_schema_failure and attempt == STRUCTURE_MAX_ATTEMPTS - 1:
+                    pathway = _recover_failed_pathway(exc, state)
+                    if pathway is not None:
+                        logger.warning(
+                            "deep_researcher recovered an incomplete strict-schema response after %d attempts",
+                            STRUCTURE_MAX_ATTEMPTS,
+                        )
+                        break
+                if not is_schema_failure or attempt == STRUCTURE_MAX_ATTEMPTS - 1:
+                    raise
+                logger.warning(
+                    "deep_researcher structure schema validation failed; retrying (%d/%d)",
+                    attempt + 1,
+                    STRUCTURE_MAX_ATTEMPTS,
+                )
+        else:  # Defensive: the loop either breaks on success or raises above.
+            raise RuntimeError("Structure generation exhausted without a pathway")
+        return pathway
+
+    # Output guards (profanity / toxicity / unsupported "verified" claims):
+    # one full re-generation, then OutputGuardError → safe error in the router.
+    pathway = with_reask(_structure_once, lambda p: _validate_pathway_text(p, state), "roadmap_output")
     out: dict = {"pathway": pathway}
     if is_retry:
         out["retry_count"] = state.get("retry_count", 0) + 1

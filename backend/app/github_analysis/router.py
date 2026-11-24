@@ -200,6 +200,12 @@ async def analyze_github_repos(
             "summary": profile["summary"],
             "coding_behavior": profile["coding_behavior"],
             "skills": profile["skills"],
+            # Files Prompt Shields flagged (or could not check) and therefore skipped.
+            "skipped_files": {
+                repo_name: analysis["skipped_files"]
+                for repo_name, analysis in repo_analyses.items()
+                if analysis.get("skipped_files")
+            },
         }
 
     except HTTPException:

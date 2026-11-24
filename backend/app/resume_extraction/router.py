@@ -18,6 +18,8 @@ from app.resume_extraction.service import (
 from app.utils.resumes import latest_resume_id, user_resume_ids
 from app.utils.storage import upload_resume_file, download_resume_file
 from app.security.ingestion import read_validated_pdf
+from app.security.output_guards import OutputGuardError
+from app.security.prompt_shields import PromptShieldError, ResumeInjectionDetected
 
 logger = logging.getLogger(__name__)
 
@@ -397,6 +399,24 @@ async def parse_resume(
         return {"success": True, "message": "Resume parsed and stored successfully.", "resume_id": resume_id}
     except HTTPException:
         raise
+    except ResumeInjectionDetected as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                "This resume contains hidden or embedded instructions, so we stopped processing it. "
+                "Please upload a clean copy of your resume."
+            ),
+        ) from exc
+    except PromptShieldError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Our resume safety check is temporarily unavailable. Please try again in a minute.",
+        ) from exc
+    except OutputGuardError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail="We couldn't safely extract a profile from this resume. Please try again.",
+        ) from exc
     except Exception as exc:
         logger.exception("parse_resume failed")
         raise HTTPException(status_code=500, detail="Failed to parse resume.") from exc

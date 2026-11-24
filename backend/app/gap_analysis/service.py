@@ -20,6 +20,8 @@ from app.gap_analysis.hybrid_retrieval import (
     _build_bm25_corpus,
 )
 from app.gap_analysis.taxonomy_gen import ensure_role_taxonomy
+from app.security.output_guards import awith_reask, validate_texts
+from app.security.pii import TECH_TERMS
 
 logger = logging.getLogger(__name__)
 
@@ -113,17 +115,29 @@ async def generate_gaps_for_user(
 
     role_requirements_text = "\n".join(req_lines)
 
-    # 2. LLM Structured Generation
-    result: GapAnalysisResponse = await ainvoke_gemini(
-        prompt=GAP_ANALYSIS_PROMPT.invoke({
-            "target_role": target_role_title,
-            "user_skills": ", ".join(user_skills),
-            "user_headline": user_headline,
-            "role_requirements": role_requirements_text,
-        }),
-        temperature=0.0,
-        schema=GapAnalysisResponse
-    )
+    # 2. LLM Structured Generation, validated by the output guards
+    # (profanity / toxicity / unsupported "verified" claims).  One re-ask, then
+    # OutputGuardError → the router returns a safe error.
+    gap_prompt = GAP_ANALYSIS_PROMPT.invoke({
+        "target_role": target_role_title,
+        "user_skills": ", ".join(user_skills),
+        "user_headline": user_headline,
+        "role_requirements": role_requirements_text,
+    })
+
+    async def _generate(attempt: int) -> GapAnalysisResponse:
+        return await ainvoke_gemini(prompt=gap_prompt, temperature=0.0, schema=GapAnalysisResponse)
+
+    vocabulary = list(user_skills) + [s.get("skill_name", "") for s in retrieved_skills] + TECH_TERMS
+
+    def _validate(result: GapAnalysisResponse) -> None:
+        texts: List[str] = []
+        for gap in result.gaps:
+            texts.extend([gap.skill, gap.why, *gap.prerequisites])
+        texts.extend((getattr(result, "justifications", {}) or {}).values())
+        validate_texts(texts, user_skills, vocabulary + [g.skill for g in result.gaps], "gap_analysis_output")
+
+    result = await awith_reask(_generate, _validate, "gap_analysis_output")
 
     # Deduplicate model output by normalized skill name while preserving order.
     deduped: List[GapSchema] = []

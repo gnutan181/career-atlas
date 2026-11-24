@@ -8,6 +8,7 @@ from app.config import settings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_openai import ChatOpenAI
 
 logger = logging.getLogger(__name__)
 
@@ -18,6 +19,45 @@ _JSON_SCHEMA_MODELS = frozenset({
     "openai/gpt-oss-20b",
     "openai/gpt-oss-120b",
 })
+
+
+_PROVIDERS = {"default", "groq", "gemini", "azure"}
+
+
+def get_llm_provider() -> str:
+    """LLM_PROVIDER: default (historical Gemini/Groq mix) | groq | gemini | azure."""
+    provider = (settings.llm_provider or "default").strip().lower()
+    if provider not in _PROVIDERS:
+        raise ValueError(f"Unsupported LLM_PROVIDER {provider!r}; expected one of {sorted(_PROVIDERS)}")
+    return provider
+
+
+@lru_cache()
+def get_azure_model(temperature: float = 0.2):
+    """Azure AI Foundry deployment via its OpenAI-compatible v1 endpoint
+    (``https://<resource>.services.ai.azure.com/openai/v1``).
+
+    The OpenAI client applies the timeout and retries once on 408/409/429/5xx
+    and connection errors (honouring Retry-After).  Endpoint, key and
+    deployment come only from settings and are never logged.
+    """
+    if not (settings.azure_ai_endpoint and settings.azure_ai_api_key and settings.azure_ai_deployment):
+        raise ValueError(
+            "Azure AI Foundry is not configured: set AZURE_AI_ENDPOINT, AZURE_AI_API_KEY and AZURE_AI_DEPLOYMENT."
+        )
+    return ChatOpenAI(
+        model=settings.azure_ai_deployment,
+        base_url=settings.azure_ai_endpoint.rstrip("/"),
+        api_key=settings.azure_ai_api_key,
+        temperature=temperature,
+        timeout=settings.azure_ai_timeout_seconds,
+        max_retries=1,
+    )
+
+
+def _single_provider_chain(provider: str, temperature: float, schema: Any = None):
+    model = get_azure_model(temperature) if provider == "azure" else get_groq_model(None, temperature)
+    return model.with_structured_output(schema) if schema else model
 
 
 def _get_rotating_gemini_model(model_name: str, temperature: float, attempt: int):
@@ -35,6 +75,12 @@ def _get_rotating_gemini_model(model_name: str, temperature: float, attempt: int
 
 
 def invoke_gemini(prompt: Any, model_name: str = "gemini-3.5-flash", temperature: float = 0.2, schema: Any = None, max_retries: int = 5):
+    provider = get_llm_provider()
+    if provider in {"azure", "groq"}:
+        chain = _single_provider_chain(provider, temperature, schema)
+        if hasattr(prompt, "invoke") and hasattr(prompt, "|"):
+            return (prompt | chain).invoke({})
+        return chain.invoke(prompt)
     last_exception = None
     for attempt in range(max_retries):
         try:
@@ -56,6 +102,12 @@ def invoke_gemini(prompt: Any, model_name: str = "gemini-3.5-flash", temperature
 
 
 async def ainvoke_gemini(prompt: Any, model_name: str = "gemini-3.5-flash", temperature: float = 0.2, schema: Any = None, max_retries: int = 5):
+    provider = get_llm_provider()
+    if provider in {"azure", "groq"}:
+        chain = _single_provider_chain(provider, temperature, schema)
+        if hasattr(prompt, "ainvoke") and hasattr(prompt, "|"):
+            return await (prompt | chain).ainvoke({})
+        return await chain.ainvoke(prompt)
     last_exception = None
     for attempt in range(max_retries):
         try:
@@ -102,6 +154,11 @@ def build_groq_structured_chain(
     call; callers can opt into strict validation for schemas with no optional
     fields. Other supported models retain function-calling mode for compatibility.
     """
+    provider = get_llm_provider()
+    if provider == "azure":
+        return prompt | get_azure_model(temperature).with_structured_output(schema)
+    if provider == "gemini":
+        return prompt | _get_rotating_gemini_model("gemini-3.5-flash", temperature, 0).with_structured_output(schema)
     selected_model = model_name or settings.groq_model
     structured_kwargs = (
         {"method": "json_schema", "strict": strict_json_schema}

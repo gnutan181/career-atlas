@@ -6,18 +6,14 @@ validated extraction result.
 """
 from __future__ import annotations
 
-import re
 from typing import Any
 
 from fastapi import HTTPException, UploadFile
 
+from app.security.pii import mask_pii
+
 MAX_RESUME_BYTES = 10 * 1024 * 1024
 PDF_CONTENT_TYPES = {"application/pdf", "application/x-pdf"}
-
-_EMAIL = re.compile(r"(?<![\w.+-])[\w.+-]+@[\w-]+(?:\.[\w-]+)+(?![\w.+-])")
-# Deliberately conservative: at least seven digits avoids replacing dates and
-# version numbers while covering common international resume phone formats.
-_PHONE = re.compile(r"(?<!\w)(?:\+?\d[\d .()\-]{5,}\d)(?!\w)")
 
 
 async def read_validated_pdf(upload: UploadFile) -> bytes:
@@ -36,19 +32,12 @@ async def read_validated_pdf(upload: UploadFile) -> bytes:
 
 
 def redact_pii(text: str) -> tuple[str, dict[str, str]]:
-    """Replace direct contact identifiers with deterministic LLM-safe tokens."""
-    replacements: dict[str, str] = {}
-    counters = {"EMAIL": 0, "PHONE": 0}
+    """Replace direct identifiers with deterministic LLM-safe tokens.
 
-    def replace(kind: str, match: re.Match[str]) -> str:
-        counters[kind] += 1
-        token = f"[[CA_{kind}_{counters[kind]}]]"
-        replacements[token] = match.group(0)
-        return token
-
-    redacted = _EMAIL.sub(lambda match: replace("EMAIL", match), text)
-    redacted = _PHONE.sub(lambda match: replace("PHONE", match), redacted)
-    return redacted, replacements
+    Presidio (names, emails, phones, street addresses, Indian IDs) with the
+    original email/phone regexes as a safety net and as the failure fallback.
+    """
+    return mask_pii(text)
 
 
 def restore_redacted_values(value: Any, replacements: dict[str, str]) -> Any:

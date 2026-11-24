@@ -15,6 +15,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from app.dependencies.auth import require_user_id
 from app.dependencies.database import db_client
 from app.gap_analysis.service import generate_gaps_for_user
+from app.security.output_guards import SAFE_ERROR_MESSAGE, OutputGuardError
 from app.gap_analysis.hybrid_retrieval import resolve_role_slug
 from app.utils.resumes import latest_resume_id
 
@@ -185,6 +186,8 @@ async def analyze_gaps(
 
     except HTTPException:
         raise
+    except OutputGuardError as e:
+        raise HTTPException(status_code=502, detail=SAFE_ERROR_MESSAGE) from e
     except Exception as e:
         logger.exception("analyze_gaps failed for user %s", user_id)
         raise HTTPException(status_code=500, detail=f"Gap Analysis Error: {str(e)}") from e

@@ -123,6 +123,7 @@ class ResearcherState(TypedDict, total=False):
     validation: dict               # ValidationResult dump
     judge_verdict: dict            # JudgeVerdict dump
     retry_count: int               # structure re-runs triggered by the judge
+    evidence_skills: List[str]     # resume + confirmed GitHub skills (output guards)
     max_retry: int
 
 

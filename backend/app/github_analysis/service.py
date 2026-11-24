@@ -10,6 +10,7 @@ from app.github_analysis.github_api import (
     fetch_commit_stats,
     fetch_authenticated_login,
 )
+from app.security import prompt_shields
 from app.utils.llm_factory import build_groq_structured_chain
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
@@ -159,6 +160,8 @@ async def fetch_top_repositories(access_token: str) -> List[GitHubRepoInfo]:
 
     return list(repos_map.values())[:10]
 
+_DESCRIPTION_KEY = "(repository description)"
+
 # CATRK-12: authoritative files first. Manifests list real dependencies with zero
 # guessing; README + entrypoints give intent. Only then fill with source.
 MANIFEST_FILES = {
@@ -254,12 +257,35 @@ async def analyze_repository(repo: GitHubRepoInfo, login: str, access_token: str
     file_contents = "--- FILE TREE (Partial) ---\n"
     file_contents += "\n".join(file_tree[:50]) + ("\n...(truncated)\n" if len(file_tree) > 50 else "\n")
 
+    fetched: Dict[str, str] = {}
     for file_path in selected_files:
         content = await fetch_file_content(repo.owner, short_name, file_path, access_token)
         if content:
             if len(content) > 5000:
                 content = content[:5000] + "\n...(truncated)"
-            file_contents += f"\n\n--- FILE: {file_path} ---\n{content}\n"
+            fetched[file_path] = content
+
+    # Prompt Shields: repository text is untrusted.  A flagged file — or one the
+    # shield could not check — is skipped with a recorded reason; the rest of
+    # the repository is still analysed.  The repo description is checked too.
+    description = repo.description or "No description"
+    skipped_files: List[Dict[str, str]] = []
+    if prompt_shields.is_enabled():
+        to_check = dict(fetched)
+        if repo.description:
+            to_check[_DESCRIPTION_KEY] = repo.description
+        verdicts = await prompt_shields.ashield_documents(to_check, "github")
+        for key, reason in prompt_shields.iter_flagged(verdicts):
+            if key == _DESCRIPTION_KEY:
+                description = "Description withheld by safety check"
+            else:
+                fetched.pop(key, None)
+            skipped_files.append({"path": key, "reason": reason})
+
+    for file_path, content in fetched.items():
+        file_contents += f"\n\n--- FILE: {file_path} ---\n{content}\n"
+    skipped_paths = {entry["path"] for entry in skipped_files}
+    evidence_paths = [p for p in selected_files if p not in skipped_paths]
 
     lang_str = ", ".join(f"{lang} {p}%" for lang, p in sorted(languages.items(), key=lambda x: -x[1])) or "unknown"
 
@@ -270,12 +296,13 @@ async def analyze_repository(repo: GitHubRepoInfo, login: str, access_token: str
         "coding_behavior": "Analysis failed",
         "inferred_skills": [],
         "languages": languages,
+        "skipped_files": skipped_files,
         **commit_stats,
     }
     try:
         result: RepoAnalysisResult = await chain.ainvoke({
             "repo_name": repo.name,
-            "description": repo.description or "No description",
+            "description": description,
             "language": repo.primaryLanguage or "Unknown",
             "languages": lang_str,
             "commit_context": _commit_context(commit_stats),
@@ -283,7 +310,7 @@ async def analyze_repository(repo: GitHubRepoInfo, login: str, access_token: str
         })
         skills = _filter_evidence(
             result.inferred_skills,
-            selected_files,
+            evidence_paths,
             languages,
             commit_stats.get("commit_count", 0),
         )

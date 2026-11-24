@@ -252,3 +252,88 @@ def test_build_groq_structured_chain_uses_json_schema_for_gpt_oss(monkeypatch):
     assert calls == [
         ({"type": "object"}, {"method": "json_schema", "strict": False})
     ]
+
+
+# ── LLM_PROVIDER / Azure AI Foundry ──────────────────────────────────────────
+
+class _FakeAzureChat:
+    instances = []
+
+    def __init__(self, **kwargs):
+        self.kwargs = kwargs
+        _FakeAzureChat.instances.append(self)
+
+    def with_structured_output(self, schema, **_kwargs):
+        from langchain_core.runnables import RunnableLambda
+
+        self.schema = schema
+        return RunnableLambda(lambda _value: f"azure-structured:{schema.__name__}")
+
+    def invoke(self, prompt):
+        return f"azure:{prompt}"
+
+    async def ainvoke(self, prompt):
+        return f"azure-async:{prompt}"
+
+
+@pytest.fixture
+def azure_settings(monkeypatch):
+    llm_factory.get_azure_model.cache_clear()
+    _FakeAzureChat.instances = []
+    monkeypatch.setattr(llm_factory, "ChatOpenAI", _FakeAzureChat)
+    monkeypatch.setattr(llm_factory.settings, "llm_provider", "azure")
+    monkeypatch.setattr(llm_factory.settings, "azure_ai_endpoint", "https://res.services.ai.azure.com/openai/v1/")
+    monkeypatch.setattr(llm_factory.settings, "azure_ai_api_key", "test-key")
+    monkeypatch.setattr(llm_factory.settings, "azure_ai_deployment", "my-deployment")
+    monkeypatch.setattr(llm_factory.settings, "azure_ai_timeout_seconds", 30.0)
+    yield
+    llm_factory.get_azure_model.cache_clear()
+
+
+def test_azure_provider_builds_foundry_client_from_settings(azure_settings):
+    model = llm_factory.get_azure_model(0.1)
+    assert model.kwargs == {
+        "model": "my-deployment",
+        "base_url": "https://res.services.ai.azure.com/openai/v1",
+        "api_key": "test-key",
+        "temperature": 0.1,
+        "timeout": 30.0,
+        "max_retries": 1,
+    }
+
+
+def test_azure_provider_routes_invoke_and_structured_chains(azure_settings, monkeypatch):
+    monkeypatch.setattr(llm_factory, "_get_rotating_gemini_model", lambda *a, **k: pytest.fail("Gemini used"))
+    monkeypatch.setattr(llm_factory, "get_groq_model", lambda *a, **k: pytest.fail("Groq used"))
+    assert llm_factory.invoke_gemini("hi") == "azure:hi"
+
+    import asyncio
+    assert asyncio.run(llm_factory.ainvoke_gemini("hi")) == "azure-async:hi"
+
+    from langchain_core.prompts import PromptTemplate
+    chain = llm_factory.build_groq_structured_chain(PromptTemplate.from_template("x {a}"), dict)
+    assert chain.invoke({"a": 1}) == "azure-structured:dict"
+
+
+def test_azure_provider_requires_configuration(azure_settings, monkeypatch):
+    monkeypatch.setattr(llm_factory.settings, "azure_ai_api_key", "")
+    with pytest.raises(ValueError, match="AZURE_AI_API_KEY"):
+        llm_factory.invoke_gemini("hi")
+
+
+def test_default_provider_is_unchanged(monkeypatch):
+    monkeypatch.setattr(llm_factory.settings, "llm_provider", "default")
+    monkeypatch.setattr(llm_factory, "get_azure_model", lambda *a, **k: pytest.fail("Azure used"))
+
+    class _Gemini:
+        def invoke(self, prompt):
+            return "gemini"
+
+    monkeypatch.setattr(llm_factory, "_get_rotating_gemini_model", lambda *a, **k: _Gemini())
+    assert llm_factory.invoke_gemini("p") == "gemini"
+
+
+def test_unknown_provider_is_rejected(monkeypatch):
+    monkeypatch.setattr(llm_factory.settings, "llm_provider", "openai-direct")
+    with pytest.raises(ValueError, match="Unsupported LLM_PROVIDER"):
+        llm_factory.invoke_gemini("p")

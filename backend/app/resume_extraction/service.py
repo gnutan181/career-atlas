@@ -15,6 +15,8 @@ from phonenumbers import PhoneNumberFormat
 from app.resume_extraction.schemas import ResumeExtraction
 from app.utils.llm_factory import invoke_gemini
 from app.security.ingestion import isolate_untrusted_text, redact_pii, restore_redacted_values
+from app.security.output_guards import OutputGuardError, validate_profile
+from app.security.prompt_shields import check_resume
 
 logger = logging.getLogger(__name__)
 
@@ -284,7 +286,7 @@ skills: all professional skills, core competencies (e.g. Machine Learning, Data 
 def build_repair_prompt(resume_text: str, draft_json: str, validation_error: str) -> str:
     schema_json = json.dumps(ResumeExtraction.model_json_schema(), indent=2)
     return f"""
-You produced JSON that failed schema validation.
+You produced JSON that failed validation.
 
 Fix it and return ONLY valid JSON matching the schema.
 Do not add markdown, prose, or code fences.
@@ -507,25 +509,97 @@ def _backfill_skills(parsed: ResumeExtraction, resume_text: str) -> ResumeExtrac
     return ResumeExtraction.model_validate(data)
 
 
+_CA_TOKEN = re.compile(r"\[\[CA_([A-Z]+)_\d+\]\]")
+# Only these token kinds may be restored, and only when the LLM placed them in
+# the candidate's own identity / contact fields.
+_RESTORABLE_KINDS = {"NAME", "EMAIL", "PHONE"}
+_REDACTED = "[redacted]"
+_PII_REPAIR_NOTE = (
+    "The JSON contained personal data (email addresses, phone numbers, street "
+    "addresses, ID numbers, or names of other people) outside the candidate's "
+    "own full_name and contact fields. Remove that data and keep every other fact."
+)
+
+
+def _validation_summary(exc: Exception) -> str:
+    """Content-free description of a parse/validation error (never echoes input values)."""
+    if isinstance(exc, ValidationError):
+        parts = [f"{'.'.join(str(p) for p in err.get('loc', ()))}: {err.get('msg', '')}" for err in exc.errors()[:20]]
+        return "; ".join(parts) or "schema validation failed"
+    if isinstance(exc, json.JSONDecodeError):
+        return f"invalid JSON at line {exc.lineno} column {exc.colno}: {exc.msg}"
+    return type(exc).__name__
+
+
+def _split_replacements(
+    data: dict[str, Any], replacements: dict[str, str]
+) -> tuple[dict[str, str], dict[str, str]]:
+    """Tokens the LLM used for the candidate's own name/email/phone vs. the rest."""
+    contact = data.get("contact") or {}
+    candidate_fields = [data.get("full_name"), contact.get("email"), contact.get("phone_raw"), contact.get("phone")]
+    candidate: dict[str, str] = {}
+    for value in candidate_fields:
+        if not isinstance(value, str):
+            continue
+        for match in _CA_TOKEN.finditer(value):
+            token = match.group(0)
+            if match.group(1) in _RESTORABLE_KINDS and token in replacements:
+                candidate[token] = replacements[token]
+    others = {token: value for token, value in replacements.items() if token not in candidate}
+    return candidate, others
+
+
+def _scrub_tokens(value: Any, in_contact: bool = False) -> Any:
+    """Replace any remaining (non-candidate or unknown) token."""
+    if isinstance(value, str):
+        if in_contact:
+            cleaned = _CA_TOKEN.sub("", value)
+            cleaned = re.sub(r"\s*([,|-])\s*(?=[,|-]|$)", "", cleaned)
+            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip(" ,|-")
+            return cleaned or None
+        return _CA_TOKEN.sub(_REDACTED, value)
+    if isinstance(value, list):
+        return [_scrub_tokens(item, in_contact) for item in value]
+    if isinstance(value, dict):
+        return {key: _scrub_tokens(item, in_contact) for key, item in value.items()}
+    return value
+
+
+def _restore_candidate_values(data: dict[str, Any], replacements: dict[str, str]) -> tuple[dict[str, Any], list[str], list[str]]:
+    candidate, others = _split_replacements(data, replacements)
+    restored = restore_redacted_values(data, candidate)
+    restored = {
+        key: _scrub_tokens(value, in_contact=key in {"contact", "full_name"})
+        for key, value in restored.items()
+    }
+    if restored.get("contact") is None:
+        restored["contact"] = {}
+    return restored, list(candidate.values()), list(others.values())
+
+
 def extract_structured_resume_data(md_text: str) -> ResumeExtraction:
-    # The provider receives no direct email address or phone number. Tokens are
-    # restored only after its JSON has passed our local schema validation.
+    # Untrusted resume text → Presidio masking → Prompt Shields on the *masked*
+    # text (Azure never sees raw PII) → isolated prompt → LLM.  Tokens are
+    # restored only for the candidate's own name/email/phone, and only after
+    # the JSON has passed schema validation and the output guards.
     redacted_text, replacements = redact_pii(md_text)
+    check_resume(redacted_text)  # raises ResumeInjectionDetected / PromptShieldError
     prompt = build_extraction_prompt(redacted_text)
     draft_json = llm_generate_resume_json(prompt)
-    for attempt in range(2):  # 1 initial + 1 repair
+    for attempt in range(2):  # 1 initial + 1 repair / re-ask
         try:
             parsed = parse_resume_json(draft_json)
-            parsed = ResumeExtraction.model_validate(
-                restore_redacted_values(parsed.model_dump(mode="json"), replacements)
-            )
+            restored, allowed, forbidden = _restore_candidate_values(parsed.model_dump(mode="json"), replacements)
+            parsed = ResumeExtraction.model_validate(restored)
             parsed = _enforce_post_processing(parsed)
             parsed = _backfill_skills(parsed, md_text)
+            validate_profile(parsed.model_dump(mode="json"), allowed, forbidden)
             return parsed
-        except (ValidationError, json.JSONDecodeError) as exc:
+        except (ValidationError, json.JSONDecodeError, OutputGuardError) as exc:
             if attempt == 0:
-                logger.warning("resume extraction failed schema validation; retrying (1/1): %s", type(exc).__name__)
-                repair_prompt = build_repair_prompt(redacted_text, draft_json, str(exc))
+                logger.warning("resume extraction failed validation; re-asking once (1/1): %s", type(exc).__name__)
+                note = _PII_REPAIR_NOTE if isinstance(exc, OutputGuardError) else _validation_summary(exc)
+                repair_prompt = build_repair_prompt(redacted_text, draft_json, note)
                 draft_json = llm_generate_resume_json(repair_prompt)
             else:
                 raise

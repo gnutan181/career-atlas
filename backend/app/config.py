@@ -78,4 +78,43 @@ class Settings(BaseSettings):
     github_client_secret: str = os.getenv("GITHUB_CLIENT_SECRET", "")
     github_oauth_redirect_uri: str = os.getenv("GITHUB_OAUTH_REDIRECT_URI", "")
 
+    # ── LLM provider routing ─────────────────────────────────────────────
+    # "default" keeps the historical mix (Gemini for extraction / gap analysis,
+    # Groq for structured chains).  "azure" routes every helper in
+    # app.utils.llm_factory to an Azure AI Foundry deployment; "groq" and
+    # "gemini" force a single provider.
+    llm_provider: str = "default"
+    # Foundry OpenAI-compatible v1 endpoint, e.g.
+    # https://<resource>.services.ai.azure.com/openai/v1
+    azure_ai_endpoint: str = ""
+    azure_ai_api_key: str = ""
+    azure_ai_deployment: str = ""
+    azure_ai_timeout_seconds: float = 60.0
+
+    # ── Guardrails: PII masking (Presidio) ───────────────────────────────
+    pii_engine: str = "presidio"  # presidio | regex
+    # Never list LOCATION / ORGANIZATION / DATE_TIME / NRP: the extractor needs
+    # cities, companies, universities and dates.
+    pii_entities: str = (
+        "PERSON,EMAIL_ADDRESS,PHONE_NUMBER,STREET_ADDRESS,"
+        "IN_PAN,IN_AADHAAR,IN_PASSPORT,IN_VOTER"
+    )
+    pii_score_threshold: float = 0.5
+    presidio_spacy_model: str = "en_core_web_lg"
+
+    # ── Guardrails: Azure AI Content Safety Prompt Shields ───────────────
+    prompt_shields_enabled: bool = False
+    azure_content_safety_endpoint: str = ""
+    azure_content_safety_key: str = ""
+    prompt_shields_timeout_seconds: float = 10.0
+
+    # ── Guardrails: output validation (Guardrails AI) ────────────────────
+    output_guards_enabled: bool = True
+    # toxic_language pulls in torch + a local BERT model; off unless installed.
+    toxicity_guard_enabled: bool = False
+
+    @property
+    def pii_entity_list(self) -> list[str]:
+        return [e.strip().upper() for e in self.pii_entities.split(",") if e.strip()]
+
 settings = Settings()

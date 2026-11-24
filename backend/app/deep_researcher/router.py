@@ -11,7 +11,7 @@ into learning_pathways (one row per user+role).
 """
 import logging
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -29,7 +29,8 @@ from app.deep_researcher.schemas import (
 )
 from app.gap_analysis.hybrid_retrieval import resolve_role_slug
 from app.roadmap_generation.service import upsert_role_milestones
-from app.utils.resumes import latest_resume_id, user_resume_ids
+from app.security.output_guards import SAFE_ERROR_MESSAGE, OutputGuardError
+from app.utils.resumes import evidence_skills, latest_resume_id, user_resume_ids
 
 logger = logging.getLogger(__name__)
 
@@ -184,6 +185,7 @@ class ResearchContext:
     resume_id: str
     gaps: List[GapIn]
     github_notes: List[str]
+    evidence_skills: List[str] = field(default_factory=list)
 
 def _prepare_research_context(user_id: str, target_role_id: str) -> ResearchContext:
     role_resp = (
@@ -228,7 +230,8 @@ def _prepare_research_context(user_id: str, target_role_id: str) -> ResearchCont
         role_slug=role_slug,
         resume_id=resume_id,
         gaps=gaps,
-        github_notes=github_notes
+        github_notes=github_notes,
+        evidence_skills=evidence_skills(user_id, resume_id),
     )
 
 
@@ -247,12 +250,15 @@ def deep_research(
         "max_iter": max(1, min(req.max_iter, 6)),
         "retry_count": 0,
         "max_retry": 1,
+        "evidence_skills": ctx.evidence_skills,
     }
 
     try:
         final_state = deep_researcher_agent.invoke(
             state_input, {"recursion_limit": 40}
         )
+    except OutputGuardError as e:
+        raise HTTPException(status_code=502, detail=SAFE_ERROR_MESSAGE) from e
     except Exception as e:
         logger.exception("deep_researcher graph failure")
         raise HTTPException(status_code=500, detail=f"Deep research failed: {e}")
