@@ -1,0 +1,4738 @@
+[
+  {
+    "id": "pii-00",
+    "text": "# Isha Nair\nSoftware Engineer\nisha.nair@example.com\n068301 66131\n162 Gandhi Nagar, Kolkata 700029\nAadhaar: 4819 4821 9933\n\n## Summary\nSoftware Engineer with 4 years of experience building products with Node.js and Docker.\n\n## Experience\n### Software Engineer — Wipro Technologies, Kolkata\nJun 2024 – Present\n- Built MongoDB services processing 33M events per day.\n- Migrated reporting to AWS, cutting latency by 26%.\n### Associate Software Engineer — Accenture\nAug 2022 – Jun 2024\n- Automated pipelines with TensorFlow and Airflow.\n\n## Education\nAnna University — MCA, 2018 – 2022\n\n## Skills\nNode.js, Docker, MongoDB, AWS, TensorFlow, Airflow, Pandas, scikit-learn\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Isha Nair"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "isha.nair@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "068301 66131"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "162 Gandhi Nagar"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "700029"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "4819 4821 9933"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Anna University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Software Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Isha Nair",
+      "email": "isha.nair@example.com",
+      "phone_raw": "068301 66131",
+      "companies": [
+        "Wipro Technologies",
+        "Accenture"
+      ],
+      "institutions": [
+        "Anna University"
+      ],
+      "skills": [
+        "Node.js",
+        "Docker",
+        "MongoDB",
+        "AWS",
+        "TensorFlow",
+        "Airflow",
+        "Pandas",
+        "scikit-learn"
+      ],
+      "titles": [
+        "Software Engineer",
+        "Associate Software Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-01",
+    "text": "# Rohan Iyer\nData Scientist\nriyer64@example.net\n089118 62527\nNo. 22, 12th Cross, Jaipur 302072\nPAN: IPWPI2064B\n\n## Summary\nData Scientist with 6 years of experience building products with Tableau and scikit-learn.\n\n## Experience\n### Data Scientist — Accenture, Jaipur\nMar 2023 – Present\n- Built Flask services processing 16M events per day.\n- Migrated reporting to Redis, cutting latency by 46%.\n### Associate Data Scientist — Microsoft India\nJun 2021 – Mar 2023\n- Automated pipelines with PyTorch and MongoDB.\n- Mentored by Chloe Joshi on system design.\n\n## Education\nJadavpur University — M.Sc Computer Science, 2017 – 2021\n\n## Skills\nTableau, scikit-learn, Flask, Redis, PyTorch, MongoDB, NumPy, Python\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rohan Iyer"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "riyer64@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "089118 62527"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 22, 12th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "302072"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "IPWPI2064B"
+      },
+      {
+        "type": "PERSON",
+        "value": "Chloe Joshi"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Jadavpur University"
+      },
+      {
+        "type": "CITY",
+        "value": "Jaipur"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Rohan Iyer",
+      "email": "riyer64@example.net",
+      "phone_raw": "089118 62527",
+      "companies": [
+        "Accenture",
+        "Microsoft India"
+      ],
+      "institutions": [
+        "Jadavpur University"
+      ],
+      "skills": [
+        "Tableau",
+        "scikit-learn",
+        "Flask",
+        "Redis",
+        "PyTorch",
+        "MongoDB",
+        "NumPy",
+        "Python"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-02",
+    "text": "Sneha Menon\nDevOps Engineer\nsneha.menon@example.org | +91 82684 65632 | 4 Residency Road, Kolkata 700030\n\n## Summary\nDevOps Engineer with 5 years of experience building products with Azure and PostgreSQL.\n\n## Experience\n### DevOps Engineer — Microsoft India, Kolkata\nJul 2023 – Present\n- Built MongoDB services processing 15M events per day.\n- Migrated reporting to Kafka, cutting latency by 45%.\n### Associate DevOps Engineer — Wipro Technologies\nJul 2021 – Jul 2023\n- Automated pipelines with Java and scikit-learn.\n\n## Education\nPune University — MCA, 2017 – 2021\n\n## Skills\nAzure, PostgreSQL, MongoDB, Kafka, Java, scikit-learn, Power BI, AWS\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Sneha Menon"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "sneha.menon@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 82684 65632"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "4 Residency Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "700030"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Pune University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "DATE",
+        "value": "Jul 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Jul 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Sneha Menon",
+      "email": "sneha.menon@example.org",
+      "phone_raw": "+91 82684 65632",
+      "companies": [
+        "Microsoft India",
+        "Wipro Technologies"
+      ],
+      "institutions": [
+        "Pune University"
+      ],
+      "skills": [
+        "Azure",
+        "PostgreSQL",
+        "MongoDB",
+        "Kafka",
+        "Java",
+        "scikit-learn",
+        "Power BI",
+        "AWS"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-03",
+    "text": "Rahul Kulkarni\nBackend Developer\nrahul.kulkarni@example.org\n+91 61092 81590\nNo. 39, 6th Cross, Chennai 600 082\n\n## Summary\nBackend Developer with 3 years of experience building products with Pandas and Kafka.\n\n## Experience\n### Backend Developer — Wipro Technologies, Chennai\nJun 2021 – Present\n- Built Django services processing 90M events per day.\n- Migrated reporting to Docker, cutting latency by 49%.\n### Associate Backend Developer — PhonePe\nSep 2019 – Jun 2021\n- Automated pipelines with Redis and React.\n\n## Education\nIIT Bombay — M.Sc Computer Science, 2015 – 2019\n\n## Skills\nPandas, Kafka, Django, Docker, Redis, React, Kubernetes, Python\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rahul Kulkarni"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "rahul.kulkarni@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 61092 81590"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 39, 6th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "600 082"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "IIT Bombay"
+      },
+      {
+        "type": "CITY",
+        "value": "Chennai"
+      },
+      {
+        "type": "TITLE",
+        "value": "Backend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2019"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "2015 – 2019"
+      }
+    ],
+    "expected": {
+      "full_name": "Rahul Kulkarni",
+      "email": "rahul.kulkarni@example.org",
+      "phone_raw": "+91 61092 81590",
+      "companies": [
+        "Wipro Technologies",
+        "PhonePe"
+      ],
+      "institutions": [
+        "IIT Bombay"
+      ],
+      "skills": [
+        "Pandas",
+        "Kafka",
+        "Django",
+        "Docker",
+        "Redis",
+        "React",
+        "Kubernetes",
+        "Python"
+      ],
+      "titles": [
+        "Backend Developer",
+        "Associate Backend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-04",
+    "text": "Chloe Nguyen\nData Analyst\ncnguyen34@example.net | 083888 53933 | 31/5 Park Street, Mumbai 400 046\nPAN: ZXLPN6974C  Aadhaar: 573537990756\n\n## Summary\nData Analyst with 2 years of experience building products with Linux and PyTorch.\n\n## Experience\n### Data Analyst — Wipro Technologies, Mumbai\nJun 2023 – Present\n- Built Spark services processing 52M events per day.\n- Migrated reporting to Redis, cutting latency by 44%.\n### Associate Data Analyst — Mu Sigma\nNov 2021 – Jun 2023\n- Automated pipelines with Airflow and Node.js.\n\n## Education\nUniversity of Toronto — B.Tech Computer Science, 2017 – 2021\n\n## Skills\nLinux, PyTorch, Spark, Redis, Airflow, Node.js, Docker, React\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Chloe Nguyen"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "cnguyen34@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "083888 53933"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "31/5 Park Street"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "400 046"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "ZXLPN6974C"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "573537990756"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Mu Sigma"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Toronto"
+      },
+      {
+        "type": "CITY",
+        "value": "Mumbai"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Chloe Nguyen",
+      "email": "cnguyen34@example.net",
+      "phone_raw": "083888 53933",
+      "companies": [
+        "Wipro Technologies",
+        "Mu Sigma"
+      ],
+      "institutions": [
+        "University of Toronto"
+      ],
+      "skills": [
+        "Linux",
+        "PyTorch",
+        "Spark",
+        "Redis",
+        "Airflow",
+        "Node.js",
+        "Docker",
+        "React"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-05",
+    "text": "# Ananya Gupta\nMachine Learning Engineer\nagupta20@example.com\n+91 79975 28820\nHyderabad\nPAN: GGAPG5126G  Aadhaar: 595486205797\n\n## Summary\nMachine Learning Engineer with 3 years of experience building products with AWS and SQL.\n\n## Experience\n### Machine Learning Engineer — Mu Sigma, Hyderabad\nMar 2020 – Present\n- Built Kubernetes services processing 62M events per day.\n- Migrated reporting to Power BI, cutting latency by 54%.\n### Associate Machine Learning Engineer — PhonePe\nMar 2018 – Mar 2020\n- Automated pipelines with Python and scikit-learn.\n\n## Education\nManipal Institute of Technology — B.E. Information Technology, 2014 – 2018\n\n## Skills\nAWS, SQL, Kubernetes, Power BI, Python, scikit-learn, React, Azure\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Ananya Gupta"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "agupta20@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 79975 28820"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "GGAPG5126G"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "595486205797"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Mu Sigma"
+      },
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "Manipal Institute of Technology"
+      },
+      {
+        "type": "CITY",
+        "value": "Hyderabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Ananya Gupta",
+      "email": "agupta20@example.com",
+      "phone_raw": "+91 79975 28820",
+      "companies": [
+        "Mu Sigma",
+        "PhonePe"
+      ],
+      "institutions": [
+        "Manipal Institute of Technology"
+      ],
+      "skills": [
+        "AWS",
+        "SQL",
+        "Kubernetes",
+        "Power BI",
+        "Python",
+        "scikit-learn",
+        "React",
+        "Azure"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-06",
+    "text": "**Nikhil Verma**\nProduct Analyst\nnikhil.verma@example.com • +91-8018780175 • No. 45, 9th Cross, New Delhi 110062\nPAN: OKCPV4942N  Aadhaar: 612524273164\n\n## Summary\nProduct Analyst with 4 years of experience building products with Redis and TensorFlow.\n\n## Experience\n### Product Analyst — Freshworks, New Delhi\nDec 2022 – Present\n- Built Kubernetes services processing 4M events per day.\n- Migrated reporting to PyTorch, cutting latency by 36%.\n### Associate Product Analyst — Microsoft India\nFeb 2020 – Dec 2022\n- Automated pipelines with Pandas and Git.\n\n## Education\nBITS Pilani — B.E. Information Technology, 2016 – 2020\n\n## Skills\nRedis, TensorFlow, Kubernetes, PyTorch, Pandas, Git, Node.js, NumPy\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Nikhil Verma"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "nikhil.verma@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8018780175"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 45, 9th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "110062"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "OKCPV4942N"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "612524273164"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "BITS Pilani"
+      },
+      {
+        "type": "CITY",
+        "value": "New Delhi"
+      },
+      {
+        "type": "TITLE",
+        "value": "Product Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Nikhil Verma",
+      "email": "nikhil.verma@example.com",
+      "phone_raw": "+91-8018780175",
+      "companies": [
+        "Freshworks",
+        "Microsoft India"
+      ],
+      "institutions": [
+        "BITS Pilani"
+      ],
+      "skills": [
+        "Redis",
+        "TensorFlow",
+        "Kubernetes",
+        "PyTorch",
+        "Pandas",
+        "Git",
+        "Node.js",
+        "NumPy"
+      ],
+      "titles": [
+        "Product Analyst",
+        "Associate Product Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-07",
+    "text": "Name: Pooja Sharma\nFrontend Developer\npsharma80@example.net\n+91-6131144024\nKolkata\nPAN: ERQPS9103W  Aadhaar: 602614014197\n\n## Summary\nFrontend Developer with 2 years of experience building products with Python and Pandas.\n\n## Experience\n### Frontend Developer — Wipro Technologies, Kolkata\nApr 2024 – Present\n- Built AWS services processing 22M events per day.\n- Migrated reporting to TensorFlow, cutting latency by 31%.\n### Associate Frontend Developer — Zoho Corporation\nDec 2022 – Apr 2024\n- Automated pipelines with Django and Azure.\n- Mentored by Kavya Joshi on system design.\n\n## Education\nIIT Bombay — B.Sc Statistics, 2018 – 2022\n\n## Skills\nPython, Pandas, AWS, TensorFlow, Django, Azure, SQL, Java\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Pooja Sharma"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "psharma80@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-6131144024"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "ERQPS9103W"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "602614014197"
+      },
+      {
+        "type": "PERSON",
+        "value": "Kavya Joshi"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Zoho Corporation"
+      },
+      {
+        "type": "ORG",
+        "value": "IIT Bombay"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Frontend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Apr 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Pooja Sharma",
+      "email": "psharma80@example.net",
+      "phone_raw": "+91-6131144024",
+      "companies": [
+        "Wipro Technologies",
+        "Zoho Corporation"
+      ],
+      "institutions": [
+        "IIT Bombay"
+      ],
+      "skills": [
+        "Python",
+        "Pandas",
+        "AWS",
+        "TensorFlow",
+        "Django",
+        "Azure",
+        "SQL",
+        "Java"
+      ],
+      "titles": [
+        "Frontend Developer",
+        "Associate Frontend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-08",
+    "text": "Name: Emily Joshi\nBackend Developer\nemily.joshi@example.org | +91-6400088387 | Ahmedabad\n\n## Summary\nBackend Developer with 3 years of experience building products with Node.js and FastAPI.\n\n## Experience\n### Backend Developer — Thoughtworks, Ahmedabad\nJan 2023 – Present\n- Built Pandas services processing 3M events per day.\n- Migrated reporting to Linux, cutting latency by 19%.\n### Associate Backend Developer — HCL Technologies\nJun 2021 – Jan 2023\n- Automated pipelines with Redis and Kafka.\n\n## Education\nDelhi University — M.Sc Computer Science, 2017 – 2021\n\n## Skills\nNode.js, FastAPI, Pandas, Linux, Redis, Kafka, PostgreSQL, SQL\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Emily Joshi"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "emily.joshi@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-6400088387"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Thoughtworks"
+      },
+      {
+        "type": "ORG",
+        "value": "HCL Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Delhi University"
+      },
+      {
+        "type": "CITY",
+        "value": "Ahmedabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Backend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Emily Joshi",
+      "email": "emily.joshi@example.org",
+      "phone_raw": "+91-6400088387",
+      "companies": [
+        "Thoughtworks",
+        "HCL Technologies"
+      ],
+      "institutions": [
+        "Delhi University"
+      ],
+      "skills": [
+        "Node.js",
+        "FastAPI",
+        "Pandas",
+        "Linux",
+        "Redis",
+        "Kafka",
+        "PostgreSQL",
+        "SQL"
+      ],
+      "titles": [
+        "Backend Developer",
+        "Associate Backend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-09",
+    "text": "**Grace Chatterjee**\nMachine Learning Engineer\ngchatterjee11@example.com • +91 89340 72247 • Kolkata\n\n## Summary\nMachine Learning Engineer with 3 years of experience building products with NumPy and React.\n\n## Experience\n### Machine Learning Engineer — Swiggy, Kolkata\nApr 2024 – Present\n- Built Python services processing 66M events per day.\n- Migrated reporting to Pandas, cutting latency by 15%.\n### Associate Machine Learning Engineer — Infosys\nNov 2022 – Apr 2024\n- Automated pipelines with PyTorch and JavaScript.\n- Mentored by Hannah Iyer on system design.\n\n## Education\nDelhi University — B.E. Information Technology, 2018 – 2022\n\n## Skills\nNumPy, React, Python, Pandas, PyTorch, JavaScript, Docker, Django\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Grace Chatterjee"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "gchatterjee11@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 89340 72247"
+      },
+      {
+        "type": "PERSON",
+        "value": "Hannah Iyer"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Swiggy"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Delhi University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Apr 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Grace Chatterjee",
+      "email": "gchatterjee11@example.com",
+      "phone_raw": "+91 89340 72247",
+      "companies": [
+        "Swiggy",
+        "Infosys"
+      ],
+      "institutions": [
+        "Delhi University"
+      ],
+      "skills": [
+        "NumPy",
+        "React",
+        "Python",
+        "Pandas",
+        "PyTorch",
+        "JavaScript",
+        "Docker",
+        "Django"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-10",
+    "text": "Sneha Rao\nSoftware Engineer\nsrao3@example.org | 7198296572 | Jaipur\n\n## Summary\nSoftware Engineer with 7 years of experience building products with SQL and Kubernetes.\n\n## Experience\n### Software Engineer — Mu Sigma, Jaipur\nDec 2025 – Present\n- Built Airflow services processing 31M events per day.\n- Migrated reporting to Git, cutting latency by 20%.\n### Associate Software Engineer — Atlassian\nNov 2023 – Dec 2025\n- Automated pipelines with GCP and Python.\n- Mentored by Sneha Singh on system design.\n\n## Education\nPune University — MCA, 2019 – 2023\n\n## Skills\nSQL, Kubernetes, Airflow, Git, GCP, Python, MongoDB, Spark\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Sneha Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "srao3@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "7198296572"
+      },
+      {
+        "type": "PERSON",
+        "value": "Sneha Singh"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Mu Sigma"
+      },
+      {
+        "type": "ORG",
+        "value": "Atlassian"
+      },
+      {
+        "type": "ORG",
+        "value": "Pune University"
+      },
+      {
+        "type": "CITY",
+        "value": "Jaipur"
+      },
+      {
+        "type": "TITLE",
+        "value": "Software Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2025"
+      },
+      {
+        "type": "DATE",
+        "value": "2019 – 2023"
+      }
+    ],
+    "expected": {
+      "full_name": "Sneha Rao",
+      "email": "srao3@example.org",
+      "phone_raw": "7198296572",
+      "companies": [
+        "Mu Sigma",
+        "Atlassian"
+      ],
+      "institutions": [
+        "Pune University"
+      ],
+      "skills": [
+        "SQL",
+        "Kubernetes",
+        "Airflow",
+        "Git",
+        "GCP",
+        "Python",
+        "MongoDB",
+        "Spark"
+      ],
+      "titles": [
+        "Software Engineer",
+        "Associate Software Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-11",
+    "text": "**Vikram Rao**\nSoftware Engineer\nvikram.rao@example.net | +91 67188 18174 | Kochi\nPAN: XUOPR9092M  Aadhaar: 6093 1925 4493\n\n## Summary\nSoftware Engineer with 5 years of experience building products with Django and MongoDB.\n\n## Experience\n### Software Engineer — Infosys, Kochi\nMay 2025 – Present\n- Built TypeScript services processing 61M events per day.\n- Migrated reporting to Redis, cutting latency by 44%.\n### Associate Software Engineer — Swiggy\nSep 2023 – May 2025\n- Automated pipelines with Node.js and Git.\n\n## Education\nAnna University — B.Sc Statistics, 2019 – 2023\n\n## Skills\nDjango, MongoDB, TypeScript, Redis, Node.js, Git, Docker, Flask\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Vikram Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "vikram.rao@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 67188 18174"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "XUOPR9092M"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "6093 1925 4493"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Swiggy"
+      },
+      {
+        "type": "ORG",
+        "value": "Anna University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kochi"
+      },
+      {
+        "type": "TITLE",
+        "value": "Software Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2025"
+      },
+      {
+        "type": "DATE",
+        "value": "2019 – 2023"
+      }
+    ],
+    "expected": {
+      "full_name": "Vikram Rao",
+      "email": "vikram.rao@example.net",
+      "phone_raw": "+91 67188 18174",
+      "companies": [
+        "Infosys",
+        "Swiggy"
+      ],
+      "institutions": [
+        "Anna University"
+      ],
+      "skills": [
+        "Django",
+        "MongoDB",
+        "TypeScript",
+        "Redis",
+        "Node.js",
+        "Git",
+        "Docker",
+        "Flask"
+      ],
+      "titles": [
+        "Software Engineer",
+        "Associate Software Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-12",
+    "text": "**Grace Fischer**\nData Scientist\ngrace.fischer@example.com • +91-6874633191 • No. 57, 2th Cross, Pune 411081\nPAN: PVOPF7642J\n\n## Summary\nData Scientist with 2 years of experience building products with TypeScript and Tableau.\n\n## Experience\n### Data Scientist — Mu Sigma, Pune\nDec 2020 – Present\n- Built Pandas services processing 39M events per day.\n- Migrated reporting to Python, cutting latency by 31%.\n### Associate Data Scientist — Freshworks\nApr 2018 – Dec 2020\n- Automated pipelines with Power BI and Airflow.\n\n## Education\nUniversity of Mumbai — M.Tech Data Science, 2014 – 2018\n\n## Skills\nTypeScript, Tableau, Pandas, Python, Power BI, Airflow, Spark, PyTorch\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Grace Fischer"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "grace.fischer@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-6874633191"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 57, 2th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "411081"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "PVOPF7642J"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Mu Sigma"
+      },
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Mumbai"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "DATE",
+        "value": "Apr 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Grace Fischer",
+      "email": "grace.fischer@example.com",
+      "phone_raw": "+91-6874633191",
+      "companies": [
+        "Mu Sigma",
+        "Freshworks"
+      ],
+      "institutions": [
+        "University of Mumbai"
+      ],
+      "skills": [
+        "TypeScript",
+        "Tableau",
+        "Pandas",
+        "Python",
+        "Power BI",
+        "Airflow",
+        "Spark",
+        "PyTorch"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-13",
+    "text": "**Neha Rao**\nData Analyst\nnrao55@example.org • +91-8104234685 • Jaipur\n\n## Summary\nData Analyst with 6 years of experience building products with Linux and Kafka.\n\n## Experience\n### Data Analyst — Razorpay, Jaipur\nJan 2022 – Present\n- Built TensorFlow services processing 18M events per day.\n- Migrated reporting to scikit-learn, cutting latency by 25%.\n### Associate Data Analyst — Atlassian\nAug 2020 – Jan 2022\n- Automated pipelines with Azure and Airflow.\n\n## Education\nIIT Bombay — B.Tech Computer Science, 2016 – 2020\n\n## Skills\nLinux, Kafka, TensorFlow, scikit-learn, Azure, Airflow, SQL, PostgreSQL\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Neha Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "nrao55@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8104234685"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Razorpay"
+      },
+      {
+        "type": "ORG",
+        "value": "Atlassian"
+      },
+      {
+        "type": "ORG",
+        "value": "IIT Bombay"
+      },
+      {
+        "type": "CITY",
+        "value": "Jaipur"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Neha Rao",
+      "email": "nrao55@example.org",
+      "phone_raw": "+91-8104234685",
+      "companies": [
+        "Razorpay",
+        "Atlassian"
+      ],
+      "institutions": [
+        "IIT Bombay"
+      ],
+      "skills": [
+        "Linux",
+        "Kafka",
+        "TensorFlow",
+        "scikit-learn",
+        "Azure",
+        "Airflow",
+        "SQL",
+        "PostgreSQL"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-14",
+    "text": "Isha Joshi\nData Scientist\nijoshi95@example.net • 074786 12213 • Mumbai\n\n## Summary\nData Scientist with 2 years of experience building products with JavaScript and React.\n\n## Experience\n### Data Scientist — Zoho Corporation, Mumbai\nApr 2022 – Present\n- Built Pandas services processing 54M events per day.\n- Migrated reporting to AWS, cutting latency by 39%.\n### Associate Data Scientist — HCL Technologies\nOct 2020 – Apr 2022\n- Automated pipelines with Linux and Power BI.\n\n## Education\nBITS Pilani — B.E. Information Technology, 2016 – 2020\n\n## Skills\nJavaScript, React, Pandas, AWS, Linux, Power BI, FastAPI, NumPy\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Isha Joshi"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "ijoshi95@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "074786 12213"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Zoho Corporation"
+      },
+      {
+        "type": "ORG",
+        "value": "HCL Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "BITS Pilani"
+      },
+      {
+        "type": "CITY",
+        "value": "Mumbai"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "DATE",
+        "value": "Oct 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Apr 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Isha Joshi",
+      "email": "ijoshi95@example.net",
+      "phone_raw": "074786 12213",
+      "companies": [
+        "Zoho Corporation",
+        "HCL Technologies"
+      ],
+      "institutions": [
+        "BITS Pilani"
+      ],
+      "skills": [
+        "JavaScript",
+        "React",
+        "Pandas",
+        "AWS",
+        "Linux",
+        "Power BI",
+        "FastAPI",
+        "NumPy"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-15",
+    "text": "Name: Divya Kulkarni\nData Scientist\ndivya.kulkarni@example.org • 082883 14366 • Kolkata\nAadhaar: 2679 7016 8779\n\n## Summary\nData Scientist with 2 years of experience building products with Kubernetes and MongoDB.\n\n## Experience\n### Data Scientist — Flipkart, Kolkata\nJan 2020 – Present\n- Built TypeScript services processing 18M events per day.\n- Migrated reporting to Tableau, cutting latency by 29%.\n### Associate Data Scientist — PhonePe\nSep 2018 – Jan 2020\n- Automated pipelines with Kafka and Redis.\n\n## Education\nNIT Trichy — B.E. Information Technology, 2014 – 2018\n\n## Skills\nKubernetes, MongoDB, TypeScript, Tableau, Kafka, Redis, PostgreSQL, scikit-learn\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Divya Kulkarni"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "divya.kulkarni@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "082883 14366"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "2679 7016 8779"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Flipkart"
+      },
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "NIT Trichy"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Divya Kulkarni",
+      "email": "divya.kulkarni@example.org",
+      "phone_raw": "082883 14366",
+      "companies": [
+        "Flipkart",
+        "PhonePe"
+      ],
+      "institutions": [
+        "NIT Trichy"
+      ],
+      "skills": [
+        "Kubernetes",
+        "MongoDB",
+        "TypeScript",
+        "Tableau",
+        "Kafka",
+        "Redis",
+        "PostgreSQL",
+        "scikit-learn"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-16",
+    "text": "# Rahul Joshi\nData Scientist\nrjoshi82@example.net\n+91 61148 93643\n31/9 Park Street, Hyderabad 500059\n\n## Summary\nData Scientist with 3 years of experience building products with Docker and Git.\n\n## Experience\n### Data Scientist — Accenture, Hyderabad\nJun 2025 – Present\n- Built MongoDB services processing 65M events per day.\n- Migrated reporting to PostgreSQL, cutting latency by 17%.\n### Associate Data Scientist — Infosys\nJul 2023 – Jun 2025\n- Automated pipelines with TensorFlow and JavaScript.\n\n## Education\nAnna University — B.E. Information Technology, 2019 – 2023\n\n## Skills\nDocker, Git, MongoDB, PostgreSQL, TensorFlow, JavaScript, Django, FastAPI\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rahul Joshi"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "rjoshi82@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 61148 93643"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "31/9 Park Street"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "500059"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Anna University"
+      },
+      {
+        "type": "CITY",
+        "value": "Hyderabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "DATE",
+        "value": "Jul 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2025"
+      },
+      {
+        "type": "DATE",
+        "value": "2019 – 2023"
+      }
+    ],
+    "expected": {
+      "full_name": "Rahul Joshi",
+      "email": "rjoshi82@example.net",
+      "phone_raw": "+91 61148 93643",
+      "companies": [
+        "Accenture",
+        "Infosys"
+      ],
+      "institutions": [
+        "Anna University"
+      ],
+      "skills": [
+        "Docker",
+        "Git",
+        "MongoDB",
+        "PostgreSQL",
+        "TensorFlow",
+        "JavaScript",
+        "Django",
+        "FastAPI"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-17",
+    "text": "# Sofia Das\nDevOps Engineer\nsdas1@example.com\n6373433734\n230 Park Street, New Delhi 110024\nAadhaar: 2026 7511 2539\n\n## Summary\nDevOps Engineer with 2 years of experience building products with Kafka and PyTorch.\n\n## Experience\n### DevOps Engineer — Fractal Analytics, New Delhi\nMay 2020 – Present\n- Built Tableau services processing 46M events per day.\n- Migrated reporting to NumPy, cutting latency by 41%.\n### Associate DevOps Engineer — Infosys\nFeb 2018 – May 2020\n- Automated pipelines with Pandas and scikit-learn.\n\n## Education\nDelhi University — M.Sc Computer Science, 2014 – 2018\n\n## Skills\nKafka, PyTorch, Tableau, NumPy, Pandas, scikit-learn, React, TypeScript\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Sofia Das"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "sdas1@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "6373433734"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "230 Park Street"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "110024"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "2026 7511 2539"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Fractal Analytics"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Delhi University"
+      },
+      {
+        "type": "CITY",
+        "value": "New Delhi"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Sofia Das",
+      "email": "sdas1@example.com",
+      "phone_raw": "6373433734",
+      "companies": [
+        "Fractal Analytics",
+        "Infosys"
+      ],
+      "institutions": [
+        "Delhi University"
+      ],
+      "skills": [
+        "Kafka",
+        "PyTorch",
+        "Tableau",
+        "NumPy",
+        "Pandas",
+        "scikit-learn",
+        "React",
+        "TypeScript"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-18",
+    "text": "Name: Vikram Fischer\nDevOps Engineer\nvfischer99@example.org | 9107358735 | Pune\nPAN: UYMPF1666M  Aadhaar: 3043 1955 4595\n\n## Summary\nDevOps Engineer with 7 years of experience building products with Python and Kafka.\n\n## Experience\n### DevOps Engineer — Microsoft India, Pune\nAug 2021 – Present\n- Built Airflow services processing 61M events per day.\n- Migrated reporting to Azure, cutting latency by 39%.\n### Associate DevOps Engineer — Fractal Analytics\nFeb 2019 – Aug 2021\n- Automated pipelines with Spark and PostgreSQL.\n\n## Education\nDelhi University — M.Tech Data Science, 2015 – 2019\n\n## Skills\nPython, Kafka, Airflow, Azure, Spark, PostgreSQL, JavaScript, Linux\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Vikram Fischer"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "vfischer99@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "9107358735"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "UYMPF1666M"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "3043 1955 4595"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Fractal Analytics"
+      },
+      {
+        "type": "ORG",
+        "value": "Delhi University"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2019"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "2015 – 2019"
+      }
+    ],
+    "expected": {
+      "full_name": "Vikram Fischer",
+      "email": "vfischer99@example.org",
+      "phone_raw": "9107358735",
+      "companies": [
+        "Microsoft India",
+        "Fractal Analytics"
+      ],
+      "institutions": [
+        "Delhi University"
+      ],
+      "skills": [
+        "Python",
+        "Kafka",
+        "Airflow",
+        "Azure",
+        "Spark",
+        "PostgreSQL",
+        "JavaScript",
+        "Linux"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-19",
+    "text": "Name: Omar Das\nMachine Learning Engineer\nomar.das@example.org | +91-8293557591 | No. 31, 9th Cross, Kochi 682 009\nAadhaar: 3316 7723 2675\n\n## Summary\nMachine Learning Engineer with 7 years of experience building products with Airflow and TypeScript.\n\n## Experience\n### Machine Learning Engineer — Swiggy, Kochi\nMay 2022 – Present\n- Built Linux services processing 35M events per day.\n- Migrated reporting to Tableau, cutting latency by 27%.\n### Associate Machine Learning Engineer — Atlassian\nJun 2020 – May 2022\n- Automated pipelines with Flask and Spark.\n\n## Education\nManipal Institute of Technology — M.Sc Computer Science, 2016 – 2020\n\n## Skills\nAirflow, TypeScript, Linux, Tableau, Flask, Spark, Django, GCP\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Omar Das"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "omar.das@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8293557591"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 31, 9th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "682 009"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "3316 7723 2675"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Swiggy"
+      },
+      {
+        "type": "ORG",
+        "value": "Atlassian"
+      },
+      {
+        "type": "ORG",
+        "value": "Manipal Institute of Technology"
+      },
+      {
+        "type": "CITY",
+        "value": "Kochi"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Omar Das",
+      "email": "omar.das@example.org",
+      "phone_raw": "+91-8293557591",
+      "companies": [
+        "Swiggy",
+        "Atlassian"
+      ],
+      "institutions": [
+        "Manipal Institute of Technology"
+      ],
+      "skills": [
+        "Airflow",
+        "TypeScript",
+        "Linux",
+        "Tableau",
+        "Flask",
+        "Spark",
+        "Django",
+        "GCP"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-20",
+    "text": "Name: Arjun Menon\nMachine Learning Engineer\narjun.menon@example.org | +91 94388 31701 | Pune\nAadhaar: 631039931583\n\n## Summary\nMachine Learning Engineer with 3 years of experience building products with Python and TypeScript.\n\n## Experience\n### Machine Learning Engineer — Fractal Analytics, Pune\nJun 2020 – Present\n- Built PostgreSQL services processing 7M events per day.\n- Migrated reporting to Azure, cutting latency by 28%.\n### Associate Machine Learning Engineer — Accenture\nJun 2018 – Jun 2020\n- Automated pipelines with Redis and Tableau.\n\n## Education\nDelhi University — M.Sc Computer Science, 2014 – 2018\n\n## Skills\nPython, TypeScript, PostgreSQL, Azure, Redis, Tableau, NumPy, Node.js\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Arjun Menon"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "arjun.menon@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 94388 31701"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "631039931583"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Fractal Analytics"
+      },
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Delhi University"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Arjun Menon",
+      "email": "arjun.menon@example.org",
+      "phone_raw": "+91 94388 31701",
+      "companies": [
+        "Fractal Analytics",
+        "Accenture"
+      ],
+      "institutions": [
+        "Delhi University"
+      ],
+      "skills": [
+        "Python",
+        "TypeScript",
+        "PostgreSQL",
+        "Azure",
+        "Redis",
+        "Tableau",
+        "NumPy",
+        "Node.js"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-21",
+    "text": "# Rahul Haddad\nSoftware Engineer\nrhaddad53@example.org • +1 415 555 0149 • 105 Brigade Road, Pune 411 009\nAadhaar: 6460 4956 6058\n\n## Summary\nSoftware Engineer with 3 years of experience building products with Python and TensorFlow.\n\n## Experience\n### Software Engineer — Thoughtworks, Pune\nMar 2022 – Present\n- Built React services processing 3M events per day.\n- Migrated reporting to Git, cutting latency by 18%.\n### Associate Software Engineer — Atlassian\nAug 2020 – Mar 2022\n- Automated pipelines with TypeScript and JavaScript.\n\n## Education\nUniversity of Mumbai — B.E. Information Technology, 2016 – 2020\n\n## Skills\nPython, TensorFlow, React, Git, TypeScript, JavaScript, PyTorch, GCP\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rahul Haddad"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "rhaddad53@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+1 415 555 0149"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "105 Brigade Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "411 009"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "6460 4956 6058"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Thoughtworks"
+      },
+      {
+        "type": "ORG",
+        "value": "Atlassian"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Mumbai"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "Software Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Rahul Haddad",
+      "email": "rhaddad53@example.org",
+      "phone_raw": "+1 415 555 0149",
+      "companies": [
+        "Thoughtworks",
+        "Atlassian"
+      ],
+      "institutions": [
+        "University of Mumbai"
+      ],
+      "skills": [
+        "Python",
+        "TensorFlow",
+        "React",
+        "Git",
+        "TypeScript",
+        "JavaScript",
+        "PyTorch",
+        "GCP"
+      ],
+      "titles": [
+        "Software Engineer",
+        "Associate Software Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-22",
+    "text": "# Emily Rao\nFrontend Developer\nemily.rao@example.net | +1 415 555 0146 | 207 Park Street, Chennai 600 097\nAadhaar: 4396 9372 9308\n\n## Summary\nFrontend Developer with 2 years of experience building products with SQL and FastAPI.\n\n## Experience\n### Frontend Developer — Freshworks, Chennai\nJun 2020 – Present\n- Built Kafka services processing 51M events per day.\n- Migrated reporting to Tableau, cutting latency by 53%.\n### Associate Frontend Developer — Razorpay\nNov 2018 – Jun 2020\n- Automated pipelines with Node.js and Java.\n\n## Education\nVIT Vellore — B.Tech Computer Science, 2014 – 2018\n\n## Skills\nSQL, FastAPI, Kafka, Tableau, Node.js, Java, AWS, MongoDB\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Emily Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "emily.rao@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+1 415 555 0146"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "207 Park Street"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "600 097"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "4396 9372 9308"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "Razorpay"
+      },
+      {
+        "type": "ORG",
+        "value": "VIT Vellore"
+      },
+      {
+        "type": "CITY",
+        "value": "Chennai"
+      },
+      {
+        "type": "TITLE",
+        "value": "Frontend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Emily Rao",
+      "email": "emily.rao@example.net",
+      "phone_raw": "+1 415 555 0146",
+      "companies": [
+        "Freshworks",
+        "Razorpay"
+      ],
+      "institutions": [
+        "VIT Vellore"
+      ],
+      "skills": [
+        "SQL",
+        "FastAPI",
+        "Kafka",
+        "Tableau",
+        "Node.js",
+        "Java",
+        "AWS",
+        "MongoDB"
+      ],
+      "titles": [
+        "Frontend Developer",
+        "Associate Frontend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-23",
+    "text": "Name: Mateo Joshi\nData Scientist\nmjoshi32@example.net\n+91-8787200977\nKolkata\nAadhaar: 9611 2565 1785\n\n## Summary\nData Scientist with 3 years of experience building products with JavaScript and Kafka.\n\n## Experience\n### Data Scientist — Tata Consultancy Services, Kolkata\nNov 2024 – Present\n- Built Pandas services processing 5M events per day.\n- Migrated reporting to Airflow, cutting latency by 19%.\n### Associate Data Scientist — Infosys\nJul 2022 – Nov 2024\n- Automated pipelines with Git and Kubernetes.\n\n## Education\nUniversity of Toronto — B.E. Information Technology, 2018 – 2022\n\n## Skills\nJavaScript, Kafka, Pandas, Airflow, Git, Kubernetes, Linux, Java\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Mateo Joshi"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "mjoshi32@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8787200977"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "9611 2565 1785"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Tata Consultancy Services"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Toronto"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "DATE",
+        "value": "Jul 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Mateo Joshi",
+      "email": "mjoshi32@example.net",
+      "phone_raw": "+91-8787200977",
+      "companies": [
+        "Tata Consultancy Services",
+        "Infosys"
+      ],
+      "institutions": [
+        "University of Toronto"
+      ],
+      "skills": [
+        "JavaScript",
+        "Kafka",
+        "Pandas",
+        "Airflow",
+        "Git",
+        "Kubernetes",
+        "Linux",
+        "Java"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-24",
+    "text": "**Daniel Reddy**\nMachine Learning Engineer\ndaniel.reddy@example.org\n+91-7159425947\nPune\n\n## Summary\nMachine Learning Engineer with 2 years of experience building products with Node.js and React.\n\n## Experience\n### Machine Learning Engineer — Swiggy, Pune\nMay 2023 – Present\n- Built PyTorch services processing 69M events per day.\n- Migrated reporting to Git, cutting latency by 18%.\n### Associate Machine Learning Engineer — Freshworks\nMar 2021 – May 2023\n- Automated pipelines with PostgreSQL and Django.\n\n## Education\nVIT Vellore — B.Tech Computer Science, 2017 – 2021\n\n## Skills\nNode.js, React, PyTorch, Git, PostgreSQL, Django, MongoDB, Pandas\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Daniel Reddy"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "daniel.reddy@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-7159425947"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Swiggy"
+      },
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "VIT Vellore"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Daniel Reddy",
+      "email": "daniel.reddy@example.org",
+      "phone_raw": "+91-7159425947",
+      "companies": [
+        "Swiggy",
+        "Freshworks"
+      ],
+      "institutions": [
+        "VIT Vellore"
+      ],
+      "skills": [
+        "Node.js",
+        "React",
+        "PyTorch",
+        "Git",
+        "PostgreSQL",
+        "Django",
+        "MongoDB",
+        "Pandas"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-25",
+    "text": "Karthik Mehta\nData Analyst\nkmehta69@example.org\n+91-8465925517\nAhmedabad\nPAN: QIJPM6122X  Aadhaar: 2324 9668 5020\n\n## Summary\nData Analyst with 6 years of experience building products with GCP and NumPy.\n\n## Experience\n### Data Analyst — Tata Consultancy Services, Ahmedabad\nMay 2023 – Present\n- Built Flask services processing 19M events per day.\n- Migrated reporting to TypeScript, cutting latency by 28%.\n### Associate Data Analyst — Infosys\nOct 2021 – May 2023\n- Automated pipelines with Kubernetes and Git.\n\n## Education\nAnna University — B.Tech Computer Science, 2017 – 2021\n\n## Skills\nGCP, NumPy, Flask, TypeScript, Kubernetes, Git, AWS, FastAPI\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Karthik Mehta"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "kmehta69@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8465925517"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "QIJPM6122X"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "2324 9668 5020"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Tata Consultancy Services"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Anna University"
+      },
+      {
+        "type": "CITY",
+        "value": "Ahmedabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "DATE",
+        "value": "Oct 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Karthik Mehta",
+      "email": "kmehta69@example.org",
+      "phone_raw": "+91-8465925517",
+      "companies": [
+        "Tata Consultancy Services",
+        "Infosys"
+      ],
+      "institutions": [
+        "Anna University"
+      ],
+      "skills": [
+        "GCP",
+        "NumPy",
+        "Flask",
+        "TypeScript",
+        "Kubernetes",
+        "Git",
+        "AWS",
+        "FastAPI"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-26",
+    "text": "Name: Hannah Carter\nMachine Learning Engineer\nhannah.carter@example.com | 062464 00859 | 12 MG Road, Hyderabad 500001\nAadhaar: 5263 8986 9288\n\n## Summary\nMachine Learning Engineer with 5 years of experience building products with Spark and Docker.\n\n## Experience\n### Machine Learning Engineer — Accenture, Hyderabad\nNov 2020 – Present\n- Built Redis services processing 24M events per day.\n- Migrated reporting to AWS, cutting latency by 29%.\n### Associate Machine Learning Engineer — Microsoft India\nDec 2018 – Nov 2020\n- Automated pipelines with Python and PyTorch.\n\n## Education\nAnna University — M.Sc Computer Science, 2014 – 2018\n\n## Skills\nSpark, Docker, Redis, AWS, Python, PyTorch, TensorFlow, scikit-learn\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Hannah Carter"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "hannah.carter@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "062464 00859"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "12 MG Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "500001"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "5263 8986 9288"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Anna University"
+      },
+      {
+        "type": "CITY",
+        "value": "Hyderabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Spark"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Hannah Carter",
+      "email": "hannah.carter@example.com",
+      "phone_raw": "062464 00859",
+      "companies": [
+        "Accenture",
+        "Microsoft India"
+      ],
+      "institutions": [
+        "Anna University"
+      ],
+      "skills": [
+        "Spark",
+        "Docker",
+        "Redis",
+        "AWS",
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "scikit-learn"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-27",
+    "text": "**Meera Menon**\nData Analyst\nmmenon96@example.org | +91-8868443180 | Bengaluru\nPAN: FXKPM4144M  Aadhaar: 568778006393\n\n## Summary\nData Analyst with 3 years of experience building products with JavaScript and GCP.\n\n## Experience\n### Data Analyst — Razorpay, Bengaluru\nJun 2024 – Present\n- Built React services processing 5M events per day.\n- Migrated reporting to SQL, cutting latency by 16%.\n### Associate Data Analyst — PhonePe\nMar 2022 – Jun 2024\n- Automated pipelines with Java and Python.\n- Mentored by Sofia Verma on system design.\n\n## Education\nJadavpur University — MCA, 2018 – 2022\n\n## Skills\nJavaScript, GCP, React, SQL, Java, Python, TypeScript, Kafka\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Meera Menon"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "mmenon96@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8868443180"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "FXKPM4144M"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "568778006393"
+      },
+      {
+        "type": "PERSON",
+        "value": "Sofia Verma"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Razorpay"
+      },
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "Jadavpur University"
+      },
+      {
+        "type": "CITY",
+        "value": "Bengaluru"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Meera Menon",
+      "email": "mmenon96@example.org",
+      "phone_raw": "+91-8868443180",
+      "companies": [
+        "Razorpay",
+        "PhonePe"
+      ],
+      "institutions": [
+        "Jadavpur University"
+      ],
+      "skills": [
+        "JavaScript",
+        "GCP",
+        "React",
+        "SQL",
+        "Java",
+        "Python",
+        "TypeScript",
+        "Kafka"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-28",
+    "text": "Name: Sofia Iyer\nData Analyst\nsiyer98@example.net | +1 415 555 0178 | 29 MG Road, Bengaluru 560027\n\n## Summary\nData Analyst with 5 years of experience building products with Django and Python.\n\n## Experience\n### Data Analyst — Accenture, Bengaluru\nSep 2022 – Present\n- Built NumPy services processing 38M events per day.\n- Migrated reporting to Linux, cutting latency by 54%.\n### Associate Data Analyst — Freshworks\nOct 2020 – Sep 2022\n- Automated pipelines with Flask and Java.\n\n## Education\nVIT Vellore — B.Sc Statistics, 2016 – 2020\n\n## Skills\nDjango, Python, NumPy, Linux, Flask, Java, Redis, Power BI\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Sofia Iyer"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "siyer98@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+1 415 555 0178"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "29 MG Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "560027"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "VIT Vellore"
+      },
+      {
+        "type": "CITY",
+        "value": "Bengaluru"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "DATE",
+        "value": "Oct 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Sofia Iyer",
+      "email": "siyer98@example.net",
+      "phone_raw": "+1 415 555 0178",
+      "companies": [
+        "Accenture",
+        "Freshworks"
+      ],
+      "institutions": [
+        "VIT Vellore"
+      ],
+      "skills": [
+        "Django",
+        "Python",
+        "NumPy",
+        "Linux",
+        "Flask",
+        "Java",
+        "Redis",
+        "Power BI"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-29",
+    "text": "**Lucas Das**\nDevOps Engineer\nlucas.das@example.net | +91-6893194260 | No. 45, 3th Cross, Bengaluru 560063\nPAN: GWHPD9164F  Aadhaar: 378155166162\n\n## Summary\nDevOps Engineer with 6 years of experience building products with Django and TensorFlow.\n\n## Experience\n### DevOps Engineer — Infosys, Bengaluru\nSep 2023 – Present\n- Built AWS services processing 90M events per day.\n- Migrated reporting to Kubernetes, cutting latency by 53%.\n### Associate DevOps Engineer — Freshworks\nMar 2021 – Sep 2023\n- Automated pipelines with React and PyTorch.\n\n## Education\nBITS Pilani — M.Tech Data Science, 2017 – 2021\n\n## Skills\nDjango, TensorFlow, AWS, Kubernetes, React, PyTorch, PostgreSQL, FastAPI\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Lucas Das"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "lucas.das@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-6893194260"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "No. 45, 3th Cross"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "560063"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "GWHPD9164F"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "378155166162"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Freshworks"
+      },
+      {
+        "type": "ORG",
+        "value": "BITS Pilani"
+      },
+      {
+        "type": "CITY",
+        "value": "Bengaluru"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "AWS"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Lucas Das",
+      "email": "lucas.das@example.net",
+      "phone_raw": "+91-6893194260",
+      "companies": [
+        "Infosys",
+        "Freshworks"
+      ],
+      "institutions": [
+        "BITS Pilani"
+      ],
+      "skills": [
+        "Django",
+        "TensorFlow",
+        "AWS",
+        "Kubernetes",
+        "React",
+        "PyTorch",
+        "PostgreSQL",
+        "FastAPI"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-30",
+    "text": "Karthik Rossi\nMachine Learning Engineer\nkrossi85@example.org | +44 20 7946 0805 | 227 Park Street, New Delhi 110 083\n\n## Summary\nMachine Learning Engineer with 4 years of experience building products with Node.js and Django.\n\n## Experience\n### Machine Learning Engineer — Atlassian, New Delhi\nMar 2023 – Present\n- Built Kafka services processing 40M events per day.\n- Migrated reporting to TypeScript, cutting latency by 42%.\n### Associate Machine Learning Engineer — Wipro Technologies\nMar 2021 – Mar 2023\n- Automated pipelines with React and MongoDB.\n- Mentored by Vikram Reddy on system design.\n\n## Education\nBITS Pilani — M.Tech Data Science, 2017 – 2021\n\n## Skills\nNode.js, Django, Kafka, TypeScript, React, MongoDB, Tableau, Linux\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Karthik Rossi"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "krossi85@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+44 20 7946 0805"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "227 Park Street"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "110 083"
+      },
+      {
+        "type": "PERSON",
+        "value": "Vikram Reddy"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Atlassian"
+      },
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "BITS Pilani"
+      },
+      {
+        "type": "CITY",
+        "value": "New Delhi"
+      },
+      {
+        "type": "TITLE",
+        "value": "Machine Learning Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kafka"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "React"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "Mar 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "2017 – 2021"
+      }
+    ],
+    "expected": {
+      "full_name": "Karthik Rossi",
+      "email": "krossi85@example.org",
+      "phone_raw": "+44 20 7946 0805",
+      "companies": [
+        "Atlassian",
+        "Wipro Technologies"
+      ],
+      "institutions": [
+        "BITS Pilani"
+      ],
+      "skills": [
+        "Node.js",
+        "Django",
+        "Kafka",
+        "TypeScript",
+        "React",
+        "MongoDB",
+        "Tableau",
+        "Linux"
+      ],
+      "titles": [
+        "Machine Learning Engineer",
+        "Associate Machine Learning Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-31",
+    "text": "Meera Kulkarni\nProduct Analyst\nmkulkarni2@example.com • +91 93847 02496 • Kolkata\n\n## Summary\nProduct Analyst with 5 years of experience building products with Git and Linux.\n\n## Experience\n### Product Analyst — Swiggy, Kolkata\nFeb 2021 – Present\n- Built Airflow services processing 57M events per day.\n- Migrated reporting to PostgreSQL, cutting latency by 35%.\n### Associate Product Analyst — Microsoft India\nNov 2019 – Feb 2021\n- Automated pipelines with Redis and GCP.\n- Mentored by Sofia Reddy on system design.\n\n## Education\nPune University — M.Sc Computer Science, 2015 – 2019\n\n## Skills\nGit, Linux, Airflow, PostgreSQL, Redis, GCP, FastAPI, MongoDB\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Meera Kulkarni"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "mkulkarni2@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91 93847 02496"
+      },
+      {
+        "type": "PERSON",
+        "value": "Sofia Reddy"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Swiggy"
+      },
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Pune University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kolkata"
+      },
+      {
+        "type": "TITLE",
+        "value": "Product Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2019"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "2015 – 2019"
+      }
+    ],
+    "expected": {
+      "full_name": "Meera Kulkarni",
+      "email": "mkulkarni2@example.com",
+      "phone_raw": "+91 93847 02496",
+      "companies": [
+        "Swiggy",
+        "Microsoft India"
+      ],
+      "institutions": [
+        "Pune University"
+      ],
+      "skills": [
+        "Git",
+        "Linux",
+        "Airflow",
+        "PostgreSQL",
+        "Redis",
+        "GCP",
+        "FastAPI",
+        "MongoDB"
+      ],
+      "titles": [
+        "Product Analyst",
+        "Associate Product Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-32",
+    "text": "Name: Grace Das\nDevOps Engineer\ngrace.das@example.net | 097709 68250 | 34/6 Brigade Road, Pune 411070\nPAN: PQAPD7060Q  Aadhaar: 9326 8195 0445\n\n## Summary\nDevOps Engineer with 7 years of experience building products with Linux and TensorFlow.\n\n## Experience\n### DevOps Engineer — Tata Consultancy Services, Pune\nMay 2020 – Present\n- Built PostgreSQL services processing 53M events per day.\n- Migrated reporting to Redis, cutting latency by 48%.\n### Associate DevOps Engineer — Infosys\nApr 2018 – May 2020\n- Automated pipelines with MongoDB and NumPy.\n\n## Education\nIIT Bombay — B.Sc Statistics, 2014 – 2018\n\n## Skills\nLinux, TensorFlow, PostgreSQL, Redis, MongoDB, NumPy, GCP, Django\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Grace Das"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "grace.das@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "097709 68250"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "34/6 Brigade Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "411070"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "PQAPD7060Q"
+      },
+      {
+        "type": "IN_AADHAAR",
+        "value": "9326 8195 0445"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Tata Consultancy Services"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "IIT Bombay"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "DATE",
+        "value": "Apr 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "May 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Grace Das",
+      "email": "grace.das@example.net",
+      "phone_raw": "097709 68250",
+      "companies": [
+        "Tata Consultancy Services",
+        "Infosys"
+      ],
+      "institutions": [
+        "IIT Bombay"
+      ],
+      "skills": [
+        "Linux",
+        "TensorFlow",
+        "PostgreSQL",
+        "Redis",
+        "MongoDB",
+        "NumPy",
+        "GCP",
+        "Django"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-33",
+    "text": "Name: Lucas Rao\nBackend Developer\nlucas.rao@example.com • +91-7783256748 • Kochi\nPAN: WMVPR5154N\n\n## Summary\nBackend Developer with 7 years of experience building products with NumPy and FastAPI.\n\n## Experience\n### Backend Developer — PhonePe, Kochi\nFeb 2024 – Present\n- Built PostgreSQL services processing 48M events per day.\n- Migrated reporting to Flask, cutting latency by 24%.\n### Associate Backend Developer — Infosys\nNov 2022 – Feb 2024\n- Automated pipelines with Pandas and Docker.\n\n## Education\nPune University — M.Tech Data Science, 2018 – 2022\n\n## Skills\nNumPy, FastAPI, PostgreSQL, Flask, Pandas, Docker, Airflow, TensorFlow\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Lucas Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "lucas.rao@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-7783256748"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "WMVPR5154N"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "Infosys"
+      },
+      {
+        "type": "ORG",
+        "value": "Pune University"
+      },
+      {
+        "type": "CITY",
+        "value": "Kochi"
+      },
+      {
+        "type": "TITLE",
+        "value": "Backend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "NumPy"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "Pandas"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2024"
+      },
+      {
+        "type": "DATE",
+        "value": "2018 – 2022"
+      }
+    ],
+    "expected": {
+      "full_name": "Lucas Rao",
+      "email": "lucas.rao@example.com",
+      "phone_raw": "+91-7783256748",
+      "companies": [
+        "PhonePe",
+        "Infosys"
+      ],
+      "institutions": [
+        "Pune University"
+      ],
+      "skills": [
+        "NumPy",
+        "FastAPI",
+        "PostgreSQL",
+        "Flask",
+        "Pandas",
+        "Docker",
+        "Airflow",
+        "TensorFlow"
+      ],
+      "titles": [
+        "Backend Developer",
+        "Associate Backend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-34",
+    "text": "Mateo Rao\nData Analyst\nmateo.rao@example.net | +91-8900314491 | Bengaluru\nPAN: EGMPR9757F\n\n## Summary\nData Analyst with 2 years of experience building products with Tableau and Flask.\n\n## Experience\n### Data Analyst — Wipro Technologies, Bengaluru\nNov 2025 – Present\n- Built Node.js services processing 73M events per day.\n- Migrated reporting to Docker, cutting latency by 22%.\n### Associate Data Analyst — Microsoft India\nAug 2023 – Nov 2025\n- Automated pipelines with Redis and Power BI.\n- Mentored by Rohan Nair on system design.\n\n## Education\nManipal Institute of Technology — M.Sc Computer Science, 2019 – 2023\n\n## Skills\nTableau, Flask, Node.js, Docker, Redis, Power BI, Kubernetes, JavaScript\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Mateo Rao"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "mateo.rao@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-8900314491"
+      },
+      {
+        "type": "IN_PAN",
+        "value": "EGMPR9757F"
+      },
+      {
+        "type": "PERSON",
+        "value": "Rohan Nair"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Microsoft India"
+      },
+      {
+        "type": "ORG",
+        "value": "Manipal Institute of Technology"
+      },
+      {
+        "type": "CITY",
+        "value": "Bengaluru"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Power BI"
+      },
+      {
+        "type": "SKILL",
+        "value": "Kubernetes"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "Nov 2025"
+      },
+      {
+        "type": "DATE",
+        "value": "2019 – 2023"
+      }
+    ],
+    "expected": {
+      "full_name": "Mateo Rao",
+      "email": "mateo.rao@example.net",
+      "phone_raw": "+91-8900314491",
+      "companies": [
+        "Wipro Technologies",
+        "Microsoft India"
+      ],
+      "institutions": [
+        "Manipal Institute of Technology"
+      ],
+      "skills": [
+        "Tableau",
+        "Flask",
+        "Node.js",
+        "Docker",
+        "Redis",
+        "Power BI",
+        "Kubernetes",
+        "JavaScript"
+      ],
+      "titles": [
+        "Data Analyst",
+        "Associate Data Analyst"
+      ]
+    }
+  },
+  {
+    "id": "pii-35",
+    "text": "**Aman Carter**\nSoftware Engineer\naman.carter@example.org • 077289 02579 • 24/1 MG Road, Ahmedabad 380054\n\n## Summary\nSoftware Engineer with 7 years of experience building products with Airflow and Git.\n\n## Experience\n### Software Engineer — Flipkart, Ahmedabad\nFeb 2021 – Present\n- Built SQL services processing 48M events per day.\n- Migrated reporting to Java, cutting latency by 36%.\n### Associate Software Engineer — HCL Technologies\nJun 2019 – Feb 2021\n- Automated pipelines with Node.js and Redis.\n\n## Education\nIIIT Hyderabad — B.Sc Statistics, 2015 – 2019\n\n## Skills\nAirflow, Git, SQL, Java, Node.js, Redis, TensorFlow, PostgreSQL\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Aman Carter"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "aman.carter@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "077289 02579"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "24/1 MG Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "380054"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Flipkart"
+      },
+      {
+        "type": "ORG",
+        "value": "HCL Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "IIIT Hyderabad"
+      },
+      {
+        "type": "CITY",
+        "value": "Ahmedabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Software Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "SQL"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "TensorFlow"
+      },
+      {
+        "type": "SKILL",
+        "value": "PostgreSQL"
+      },
+      {
+        "type": "DATE",
+        "value": "Jun 2019"
+      },
+      {
+        "type": "DATE",
+        "value": "Feb 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "2015 – 2019"
+      }
+    ],
+    "expected": {
+      "full_name": "Aman Carter",
+      "email": "aman.carter@example.org",
+      "phone_raw": "077289 02579",
+      "companies": [
+        "Flipkart",
+        "HCL Technologies"
+      ],
+      "institutions": [
+        "IIIT Hyderabad"
+      ],
+      "skills": [
+        "Airflow",
+        "Git",
+        "SQL",
+        "Java",
+        "Node.js",
+        "Redis",
+        "TensorFlow",
+        "PostgreSQL"
+      ],
+      "titles": [
+        "Software Engineer",
+        "Associate Software Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-36",
+    "text": "Divya Fischer\nData Scientist\ndfischer44@example.org\n6445765848\n20/3 Gandhi Nagar, Pune 411016\n\n## Summary\nData Scientist with 6 years of experience building products with PyTorch and Flask.\n\n## Experience\n### Data Scientist — Thoughtworks, Pune\nSep 2025 – Present\n- Built TypeScript services processing 80M events per day.\n- Migrated reporting to Python, cutting latency by 39%.\n### Associate Data Scientist — HCL Technologies\nJan 2023 – Sep 2025\n- Automated pipelines with Java and Node.js.\n\n## Education\nJadavpur University — B.Tech Computer Science, 2019 – 2023\n\n## Skills\nPyTorch, Flask, TypeScript, Python, Java, Node.js, Docker, Azure\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Divya Fischer"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "dfischer44@example.org"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "6445765848"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "20/3 Gandhi Nagar"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "411016"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Thoughtworks"
+      },
+      {
+        "type": "ORG",
+        "value": "HCL Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Jadavpur University"
+      },
+      {
+        "type": "CITY",
+        "value": "Pune"
+      },
+      {
+        "type": "TITLE",
+        "value": "Data Scientist"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Flask"
+      },
+      {
+        "type": "SKILL",
+        "value": "TypeScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "Node.js"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2023"
+      },
+      {
+        "type": "DATE",
+        "value": "Sep 2025"
+      },
+      {
+        "type": "DATE",
+        "value": "2019 – 2023"
+      }
+    ],
+    "expected": {
+      "full_name": "Divya Fischer",
+      "email": "dfischer44@example.org",
+      "phone_raw": "6445765848",
+      "companies": [
+        "Thoughtworks",
+        "HCL Technologies"
+      ],
+      "institutions": [
+        "Jadavpur University"
+      ],
+      "skills": [
+        "PyTorch",
+        "Flask",
+        "TypeScript",
+        "Python",
+        "Java",
+        "Node.js",
+        "Docker",
+        "Azure"
+      ],
+      "titles": [
+        "Data Scientist",
+        "Associate Data Scientist"
+      ]
+    }
+  },
+  {
+    "id": "pii-37",
+    "text": "**Emily Haddad**\nBackend Developer\nehaddad86@example.com | 7120610524 | 38/1 Residency Road, Chennai 600041\n\n## Summary\nBackend Developer with 6 years of experience building products with scikit-learn and JavaScript.\n\n## Experience\n### Backend Developer — Mu Sigma, Chennai\nJul 2021 – Present\n- Built Python services processing 15M events per day.\n- Migrated reporting to MongoDB, cutting latency by 20%.\n### Associate Backend Developer — Accenture\nAug 2019 – Jul 2021\n- Automated pipelines with PyTorch and Azure.\n\n## Education\nPune University — B.Sc Statistics, 2015 – 2019\n\n## Skills\nscikit-learn, JavaScript, Python, MongoDB, PyTorch, Azure, GCP, Tableau\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Emily Haddad"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "ehaddad86@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "7120610524"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "38/1 Residency Road"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "600041"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Mu Sigma"
+      },
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "Pune University"
+      },
+      {
+        "type": "CITY",
+        "value": "Chennai"
+      },
+      {
+        "type": "TITLE",
+        "value": "Backend Developer"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "JavaScript"
+      },
+      {
+        "type": "SKILL",
+        "value": "Python"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "GCP"
+      },
+      {
+        "type": "SKILL",
+        "value": "Tableau"
+      },
+      {
+        "type": "DATE",
+        "value": "Aug 2019"
+      },
+      {
+        "type": "DATE",
+        "value": "Jul 2021"
+      },
+      {
+        "type": "DATE",
+        "value": "2015 – 2019"
+      }
+    ],
+    "expected": {
+      "full_name": "Emily Haddad",
+      "email": "ehaddad86@example.com",
+      "phone_raw": "7120610524",
+      "companies": [
+        "Mu Sigma",
+        "Accenture"
+      ],
+      "institutions": [
+        "Pune University"
+      ],
+      "skills": [
+        "scikit-learn",
+        "JavaScript",
+        "Python",
+        "MongoDB",
+        "PyTorch",
+        "Azure",
+        "GCP",
+        "Tableau"
+      ],
+      "titles": [
+        "Backend Developer",
+        "Associate Backend Developer"
+      ]
+    }
+  },
+  {
+    "id": "pii-38",
+    "text": "# Kavya Nair\nDevOps Engineer\nkavya.nair@example.com • +91-6312704937 • Bengaluru\n\n## Summary\nDevOps Engineer with 7 years of experience building products with Redis and Docker.\n\n## Experience\n### DevOps Engineer — Wipro Technologies, Bengaluru\nJan 2020 – Present\n- Built scikit-learn services processing 89M events per day.\n- Migrated reporting to MongoDB, cutting latency by 54%.\n### Associate DevOps Engineer — Zoho Corporation\nJan 2018 – Jan 2020\n- Automated pipelines with Django and Java.\n- Mentored by Aditya Joshi on system design.\n\n## Education\nUniversity of Toronto — MCA, 2014 – 2018\n\n## Skills\nRedis, Docker, scikit-learn, MongoDB, Django, Java, Linux, Airflow\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Kavya Nair"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "kavya.nair@example.com"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "+91-6312704937"
+      },
+      {
+        "type": "PERSON",
+        "value": "Aditya Joshi"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Wipro Technologies"
+      },
+      {
+        "type": "ORG",
+        "value": "Zoho Corporation"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Toronto"
+      },
+      {
+        "type": "CITY",
+        "value": "Bengaluru"
+      },
+      {
+        "type": "TITLE",
+        "value": "DevOps Engineer"
+      },
+      {
+        "type": "SKILL",
+        "value": "Redis"
+      },
+      {
+        "type": "SKILL",
+        "value": "Docker"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Django"
+      },
+      {
+        "type": "SKILL",
+        "value": "Java"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2018"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "2014 – 2018"
+      }
+    ],
+    "expected": {
+      "full_name": "Kavya Nair",
+      "email": "kavya.nair@example.com",
+      "phone_raw": "+91-6312704937",
+      "companies": [
+        "Wipro Technologies",
+        "Zoho Corporation"
+      ],
+      "institutions": [
+        "University of Toronto"
+      ],
+      "skills": [
+        "Redis",
+        "Docker",
+        "scikit-learn",
+        "MongoDB",
+        "Django",
+        "Java",
+        "Linux",
+        "Airflow"
+      ],
+      "titles": [
+        "DevOps Engineer",
+        "Associate DevOps Engineer"
+      ]
+    }
+  },
+  {
+    "id": "pii-39",
+    "text": "**Daniel Haddad**\nProduct Analyst\ndhaddad8@example.net\n097221 52676\n39/6 Gandhi Nagar, Hyderabad 500 036\n\n## Summary\nProduct Analyst with 4 years of experience building products with PyTorch and Linux.\n\n## Experience\n### Product Analyst — Accenture, Hyderabad\nJan 2022 – Present\n- Built MongoDB services processing 35M events per day.\n- Migrated reporting to Git, cutting latency by 32%.\n### Associate Product Analyst — PhonePe\nDec 2020 – Jan 2022\n- Automated pipelines with Azure and Airflow.\n\n## Education\nUniversity of Mumbai — B.E. Information Technology, 2016 – 2020\n\n## Skills\nPyTorch, Linux, MongoDB, Git, Azure, Airflow, FastAPI, scikit-learn\n",
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Daniel Haddad"
+      },
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "dhaddad8@example.net"
+      },
+      {
+        "type": "PHONE_NUMBER",
+        "value": "097221 52676"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "39/6 Gandhi Nagar"
+      },
+      {
+        "type": "STREET_ADDRESS",
+        "value": "500 036"
+      }
+    ],
+    "keep": [
+      {
+        "type": "ORG",
+        "value": "Accenture"
+      },
+      {
+        "type": "ORG",
+        "value": "PhonePe"
+      },
+      {
+        "type": "ORG",
+        "value": "University of Mumbai"
+      },
+      {
+        "type": "CITY",
+        "value": "Hyderabad"
+      },
+      {
+        "type": "TITLE",
+        "value": "Product Analyst"
+      },
+      {
+        "type": "SKILL",
+        "value": "PyTorch"
+      },
+      {
+        "type": "SKILL",
+        "value": "Linux"
+      },
+      {
+        "type": "SKILL",
+        "value": "MongoDB"
+      },
+      {
+        "type": "SKILL",
+        "value": "Git"
+      },
+      {
+        "type": "SKILL",
+        "value": "Azure"
+      },
+      {
+        "type": "SKILL",
+        "value": "Airflow"
+      },
+      {
+        "type": "SKILL",
+        "value": "FastAPI"
+      },
+      {
+        "type": "SKILL",
+        "value": "scikit-learn"
+      },
+      {
+        "type": "DATE",
+        "value": "Dec 2020"
+      },
+      {
+        "type": "DATE",
+        "value": "Jan 2022"
+      },
+      {
+        "type": "DATE",
+        "value": "2016 – 2020"
+      }
+    ],
+    "expected": {
+      "full_name": "Daniel Haddad",
+      "email": "dhaddad8@example.net",
+      "phone_raw": "097221 52676",
+      "companies": [
+        "Accenture",
+        "PhonePe"
+      ],
+      "institutions": [
+        "University of Mumbai"
+      ],
+      "skills": [
+        "PyTorch",
+        "Linux",
+        "MongoDB",
+        "Git",
+        "Azure",
+        "Airflow",
+        "FastAPI",
+        "scikit-learn"
+      ],
+      "titles": [
+        "Product Analyst",
+        "Associate Product Analyst"
+      ]
+    }
+  }
+]

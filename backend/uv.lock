@@ -213,6 +213,7 @@ name = "careeratlas-backend"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "en-core-web-lg" },
     { name = "fastapi" },
     { name = "guardrails-ai" },
     { name = "guardrails-ai-profanity-free" },
@@ -230,7 +231,6 @@ dependencies = [
     { name = "phonenumbers" },
     { name = "pinecone" },
     { name = "presidio-analyzer" },
-    { name = "presidio-anonymizer" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pymupdf" },
@@ -256,6 +256,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "en-core-web-lg", url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" },
     { name = "fastapi", specifier = ">=0.140.0" },
     { name = "guardrails-ai", specifier = ">=0.11.0" },
     { name = "guardrails-ai-profanity-free", specifier = ">=0.1.0" },
@@ -273,7 +274,6 @@ requires-dist = [
     { name = "phonenumbers", specifier = ">=9.0.34" },
     { name = "pinecone", specifier = ">=9.1.0" },
     { name = "presidio-analyzer", specifier = ">=2.2.366" },
-    { name = "presidio-anonymizer", specifier = ">=2.2.366" },
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "pydantic-settings", specifier = ">=2.14.2" },
     { name = "pymupdf", specifier = ">=1.23.0" },
@@ -579,6 +579,14 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/25/ca/8de7744cb3bc966c85430ca2d0fcaeea872507c6a4cf6e007f7fe269ed9d/ecdsa-0.19.2.tar.gz", hash = "sha256:62635b0ac1ca2e027f82122b5b81cb706edc38cd91c63dda28e4f3455a2bf930", size = 202432, upload-time = "2026-03-26T09:58:17.675Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/51/79/119091c98e2bf49e24ed9f3ae69f816d715d2904aefa6a2baa039a2ba0b0/ecdsa-0.19.2-py2.py3-none-any.whl", hash = "sha256:840f5dc5e375c68f36c1a7a5b9caad28f95daa65185c9253c0c08dd952bb7399", size = 150818, upload-time = "2026-03-26T09:58:15.808Z" },
+]
+
+[[package]]
+name = "en-core-web-lg"
+version = "3.8.0"
+source = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }
+wheels = [
+    { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl", hash = "sha256:293e9547a655b25499198ab15a525b05b9407a75f10255e405e8c3854329ab63" },
 ]
 
 [[package]]
@@ -2214,18 +2222,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/40/82/5e7511329ed66898b45a83fcff0e4bb7baecde1df42f16c8c144014e5e87/presidio_analyzer-2.2.366.tar.gz", hash = "sha256:0a83b224765cc3e796cd51aff60c62c75d8be60e8ed21aa08099da78ffbd62bf", size = 170833, upload-time = "2026-10-27T09:06:34.524Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ac/15/1963007bc880b48c733b4bb3802e7001a3f831d117b5f6f82ca46f2e9b10/presidio_analyzer-2.2.366-py3-none-any.whl", hash = "sha256:ae5f29b92d3751521ecc6e5d59b93167381488692c371f9816af72681d3592a9", size = 295229, upload-time = "2026-10-27T09:06:32.888Z" },
-]
-
-[[package]]
-name = "presidio-anonymizer"
-version = "2.2.366"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cryptography" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/77/5e/ecc26a46a5f3024a0f84c55782b0c2620212c10a8c44e0623fb5b6b0db5e/presidio_anonymizer-2.2.366.tar.gz", hash = "sha256:e34662379c5453a7f80012b1dbe87d9fb90d3baf627d355424f74aa740bbf27a", size = 26876, upload-time = "2026-10-27T09:06:33.738Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/d7/91afc60a4c9c833f0f2e3fa9bc9f1c3dd50f204e8e7a6df7587d5356d704/presidio_anonymizer-2.2.366-py3-none-any.whl", hash = "sha256:ea04aed73e53f76d48a94aa8953ae21f325e5e372079c7a38b1ec71e8ecdeed3", size = 39082, upload-time = "2026-10-27T09:06:32.532Z" },
 ]
 
 [[package]]

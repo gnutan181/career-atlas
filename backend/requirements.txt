@@ -3,7 +3,7 @@ uvicorn[standard]>=0.51.0
 pydantic-settings>=2.14.2
 httpx>=0.26.0
 requests>=2.34.2
-numpy>=2.5.1
+numpy>=2.0,<2.5
 python-jose[cryptography]>=3.5.0
 python-multipart>=0.0.32
 supabase>=2.31.0
@@ -31,3 +31,9 @@ rank-bm25>=0.2.2
 
 # Environment
 python-dotenv>=1.0.0
+
+# Guardrails (PII masking + output validation)
+presidio-analyzer>=2.2.366
+guardrails-ai>=0.11.0
+guardrails-ai-profanity-free>=0.1.0
+en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl

@@ -170,9 +170,10 @@ def _build_custom_recognizers() -> list:
             Pattern(
                 "street line",
                 r"(?:(?<=^)|(?<=^[ \t#*>-]{1,6})|(?<=[,:|•·][ \t]{0,3})"
-                r"|(?<=\b(?:flat|house|h\.?\s?no\.?|plot|door|no\.?|#)[ \t]{0,3}))"
+                r"|\b(?:flat|house|h\.?\s?no\.?|plot|door|no\.?|#)[ \t]{0,3})"
                 r"\d{1,5}[A-Za-z]?(?:[/-]\d{1,4}[A-Za-z]?)?"
-                r",?[ \t]+(?:[A-Za-z0-9.'-]+,?[ \t]+){0,4}?" + street_suffix + r"\b\.?",
+                r",?[ \t]+(?:[A-Za-z0-9.'-]+,?[ \t]+){0,4}?" + street_suffix
+                + r"\b\.?(?:[ \t]+" + street_suffix + r"\b\.?)?",
                 0.6,
             ),
             # Indian PIN code after a place name / comma: "Bengaluru 560001", "Pune - 411 001"
@@ -332,6 +333,18 @@ def detect_pii(text: str, entities: list[str] | None = None, threshold: float | 
     if "PERSON" in entities:
         spans.extend(_header_name_spans(text))
     spans = _resolve_overlaps(spans)
+    # spaCy often tags one-word company names ("Freshworks") as PERSON.  Keep a
+    # single-word PERSON span only when it is part of a multi-word name found
+    # elsewhere in the same text.
+    multi_word_names = [text[s.start:s.end] for s in spans
+                        if s.entity_type == "PERSON" and len(text[s.start:s.end].split()) > 1]
+    name_words = {w.lower() for name in multi_word_names for w in name.split()}
+    spans = [
+        s for s in spans
+        if s.entity_type != "PERSON"
+        or len(text[s.start:s.end].split()) > 1
+        or text[s.start:s.end].lower() in name_words
+    ]
     # A name found once (e.g. in the header) is masked everywhere it recurs,
     # including spots where NER missed it.
     names = {text[s.start:s.end] for s in spans if s.entity_type == "PERSON"}

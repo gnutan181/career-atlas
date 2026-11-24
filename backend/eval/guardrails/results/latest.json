@@ -1,0 +1,357 @@
+{
+  "generated_at": "2026-11-25T02:26:35+0530",
+  "dataset": {
+    "pii_resumes": 40,
+    "pii_resumes_holdout": 40,
+    "injection_docs": 40
+  },
+  "config": {
+    "pii_entities": [
+      "PERSON",
+      "EMAIL_ADDRESS",
+      "PHONE_NUMBER",
+      "STREET_ADDRESS",
+      "IN_PAN",
+      "IN_AADHAAR",
+      "IN_PASSPORT",
+      "IN_VOTER"
+    ],
+    "pii_score_threshold": 0.5,
+    "spacy_model": "en_core_web_lg"
+  },
+  "pii_masking": {
+    "presidio_cold_start_ms": 2570.2,
+    "baseline_regex": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 19,
+          "recall_pct": 100.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "IN_PAN": {
+          "labelled": 14,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PERSON": {
+          "labelled": 49,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 66,
+          "precision_pct": 60.6
+        },
+        "STREET_ADDRESS": {
+          "labelled": 42,
+          "recall_pct": 16.7,
+          "predicted": 0,
+          "precision_pct": null
+        }
+      },
+      "overall_recall_pct": 52.0,
+      "overall_precision_pct": 100.0,
+      "facts_kept_pct": 100.0,
+      "facts_checked": 1087,
+      "latency": {
+        "n": 40,
+        "mean_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.1
+      }
+    },
+    "regex_fallback": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 19,
+          "recall_pct": 100.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "IN_PAN": {
+          "labelled": 14,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PERSON": {
+          "labelled": 49,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 59,
+          "precision_pct": 67.8
+        },
+        "STREET_ADDRESS": {
+          "labelled": 42,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        }
+      },
+      "overall_recall_pct": 48.5,
+      "overall_precision_pct": 100.0,
+      "facts_kept_pct": 100.0,
+      "facts_checked": 1087,
+      "latency": {
+        "n": 40,
+        "mean_ms": 0.1,
+        "p50_ms": 0.1,
+        "p95_ms": 0.1
+      }
+    },
+    "presidio": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 19,
+          "recall_pct": 100.0,
+          "predicted": 19,
+          "precision_pct": 100.0
+        },
+        "IN_PAN": {
+          "labelled": 14,
+          "recall_pct": 100.0,
+          "predicted": 14,
+          "precision_pct": 100.0
+        },
+        "PERSON": {
+          "labelled": 49,
+          "recall_pct": 100.0,
+          "predicted": 49,
+          "precision_pct": 100.0
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "STREET_ADDRESS": {
+          "labelled": 42,
+          "recall_pct": 100.0,
+          "predicted": 42,
+          "precision_pct": 100.0
+        }
+      },
+      "overall_recall_pct": 100.0,
+      "overall_precision_pct": 100.0,
+      "facts_kept_pct": 100.0,
+      "facts_checked": 1087,
+      "latency": {
+        "n": 40,
+        "mean_ms": 19.1,
+        "p50_ms": 17.7,
+        "p95_ms": 22.4
+      }
+    },
+    "added_latency_mean_ms": 19.1
+  },
+  "pii_masking_holdout": {
+    "presidio_cold_start_ms": 0.0,
+    "baseline_regex": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 13,
+          "recall_pct": 100.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "IN_PAN": {
+          "labelled": 10,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PERSON": {
+          "labelled": 54,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 64,
+          "precision_pct": 62.5
+        },
+        "STREET_ADDRESS": {
+          "labelled": 50,
+          "recall_pct": 22.0,
+          "predicted": 0,
+          "precision_pct": null
+        }
+      },
+      "overall_recall_pct": 50.2,
+      "overall_precision_pct": 100.0,
+      "facts_kept_pct": 100.0,
+      "facts_checked": 1091,
+      "latency": {
+        "n": 40,
+        "mean_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.1
+      }
+    },
+    "regex_fallback": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 13,
+          "recall_pct": 100.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "IN_PAN": {
+          "labelled": 10,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PERSON": {
+          "labelled": 54,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 53,
+          "precision_pct": 75.5
+        },
+        "STREET_ADDRESS": {
+          "labelled": 50,
+          "recall_pct": 0.0,
+          "predicted": 0,
+          "precision_pct": null
+        }
+      },
+      "overall_recall_pct": 44.9,
+      "overall_precision_pct": 100.0,
+      "facts_kept_pct": 100.0,
+      "facts_checked": 1091,
+      "latency": {
+        "n": 40,
+        "mean_ms": 0.1,
+        "p50_ms": 0.1,
+        "p95_ms": 0.1
+      }
+    },
+    "presidio": {
+      "per_entity": {
+        "EMAIL_ADDRESS": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "IN_AADHAAR": {
+          "labelled": 13,
+          "recall_pct": 100.0,
+          "predicted": 13,
+          "precision_pct": 100.0
+        },
+        "IN_PAN": {
+          "labelled": 10,
+          "recall_pct": 100.0,
+          "predicted": 10,
+          "precision_pct": 100.0
+        },
+        "PERSON": {
+          "labelled": 54,
+          "recall_pct": 98.1,
+          "predicted": 57,
+          "precision_pct": 93.0
+        },
+        "PHONE_NUMBER": {
+          "labelled": 40,
+          "recall_pct": 100.0,
+          "predicted": 40,
+          "precision_pct": 100.0
+        },
+        "STREET_ADDRESS": {
+          "labelled": 50,
+          "recall_pct": 94.0,
+          "predicted": 47,
+          "precision_pct": 100.0
+        }
+      },
+      "overall_recall_pct": 98.1,
+      "overall_precision_pct": 99.5,
+      "facts_kept_pct": 99.8,
+      "facts_checked": 1091,
+      "latency": {
+        "n": 40,
+        "mean_ms": 18.5,
+        "p50_ms": 17.4,
+        "p95_ms": 26.3
+      }
+    },
+    "added_latency_mean_ms": 18.5
+  },
+  "prompt_shields": {
+    "status": "not measured",
+    "reason": "PROMPT_SHIELDS_ENABLED / AZURE_CONTENT_SAFETY_ENDPOINT / AZURE_CONTENT_SAFETY_KEY not set",
+    "documents": {
+      "attack": 20,
+      "clean": 20
+    }
+  },
+  "output_guards": {
+    "profile_guard_false_block_pct_on_clean_profiles": 0.0,
+    "profile_guard_leak_detection_pct": 100.0,
+    "profile_guard_latency": {
+      "n": 40,
+      "mean_ms": 87.5,
+      "p50_ms": 23.3,
+      "p95_ms": 32.3
+    },
+    "text_guard_latency": {
+      "n": 40,
+      "mean_ms": 58.0,
+      "p50_ms": 4.7,
+      "p95_ms": 7.7
+    }
+  },
+  "extraction": {
+    "status": "not run (pass --extraction)"
+  }
+}
